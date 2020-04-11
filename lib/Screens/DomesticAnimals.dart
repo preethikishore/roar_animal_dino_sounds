@@ -1,8 +1,9 @@
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/AnimationTest.dart';
 import 'package:roar_animal_dino_sounds/moadals/HomeButton.dart';
+import 'package:roar_animal_dino_sounds/moadals/constants.dart';
 
 class DomesticAnimal extends StatelessWidget {
 
@@ -12,62 +13,87 @@ class DomesticAnimal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    Future<bool> _onbackpressed()
+    async {
+      return showDialog(
 
-    return Container(
+          context: context,
+          builder: (context)=> AlertDialog(
+            title: Text('Do you really want to exit the app?'),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('No'),
+                onPressed: ()=> Navigator.pop(context,false),
+              ),
+              FlatButton(
+                child: Text('Yes'),
+                onPressed: () => exit(0),
+              ),
+            ],
+          )
+      ) ??
+          false;
+    }
 
-      decoration: BoxDecoration(
-          image: DecorationImage(
-          image: AssetImage("assets/ABackground.jpg"),
-              fit: BoxFit.cover)),
-         child: Scaffold(
-           backgroundColor: Colors.transparent,
-           body: Container(
-             child: Column(
-               children: <Widget>[
+    return WillPopScope(
+      onWillPop: _onbackpressed,
+      child: Container(
 
-                 Expanded(
-                   child: Row(
-                     children: <Widget>[
-                       Expanded(child: AnimalAnimation('assets/Farmcow.png',(){p.SoundClick('SoundFarmCow.mp3');},(){p.SoundClick('NameFarmcow.mp3');})),
-                       Expanded(child: AnimalAnimation('assets/Farmdonkey.png',(){p.SoundClick('SoundFarmdonkey.mp3');},(){p.SoundClick('NameFarmdonkey.mp3');})),
-                       Expanded(child: AnimalAnimation('assets/Farmpig.png',(){p.SoundClick('SoundFarmpig.mp3');},(){p.SoundClick('NameFarmpig.mp3');})),
-                      ]
-                   ),
+        decoration: sound_boxdecoration,
+           child: Scaffold(
+             backgroundColor: Colors.transparent,
+             body: SafeArea(
+               child: Container(
+                 child: Column(
+                   children: <Widget>[
+
+                     Expanded(
+                       child: Row(
+                         children: <Widget>[
+                           Expanded(child: AnimalAnimation('assets/F03.png',(){p.SoundClick('SoundFarmCow.mp3');},(){p.SoundClick('NameFarmcow.mp3');})),
+                           Expanded(child: AnimalAnimation('assets/F05.png',(){p.SoundClick('SoundFarmdonkey.mp3');},(){p.SoundClick('NameFarmdonkey.mp3');})),
+                           Expanded(child: AnimalAnimation('assets/F08.png',(){p.SoundClick('SoundFarmpig.mp3');},(){p.SoundClick('NameFarmpig.mp3');})),
+                          ]
+                       ),
+                     ),
+
+
+                     Expanded(
+                       child: Row(
+                           children: <Widget>[
+                             Expanded(child: AnimalAnimation('assets/F02.png',(){p.SoundClick('SoundFarmCat.mp3');},(){p.SoundClick('NameFarmcat.mp3');})),
+                             Expanded(child: AnimalAnimation('assets/F04.png',(){p.SoundClick('SoundFarmDog.mp3');},(){p.SoundClick('NameFarmdog.mp3');})),
+                             Expanded(child: AnimalAnimation('assets/F07.png',(){p.SoundClick('SoundFarmLamb.mp3');},(){p.SoundClick('NameFarmsheep.mp3');})),
+                           ],
+                       ),
+                     ),
+
+               Expanded(
+               child: Row(
+                 children: <Widget>[
+                   Expanded(child: AnimalAnimation('assets/F06.png',(){p.SoundClick('SoundFarmhorse.mp3');},(){p.SoundClick('NameFarmhorse.mp3');})),
+                   Expanded(child: AnimalAnimation('assets/F01.png',(){p.SoundClick('SoundFarmcamel.mp3');},(){p.SoundClick('NameFarmcamel.mp3');}))
+                  // image_container('assets/rabit.png',(){}),
+                 ],
+               ),
+               ),
+
+                    HomeButton() ,
+                     Expanded(
+                       child: Container(
+                           height: 35,
+                           child: new Placeholder(color:Colors.transparent)
+                       ),
+                     ),
+
+                   ],
                  ),
-
-
-                 Expanded(
-                   child: Row(
-                       children: <Widget>[
-                         Expanded(child: AnimalAnimation('assets/Farmcat.png',(){p.SoundClick('SoundFarmCat.mp3');},(){p.SoundClick('NameFarmcat.mp3');})),
-                         Expanded(child: AnimalAnimation('assets/Farmdog.png',(){p.SoundClick('SoundFarmDog.mp3');},(){p.SoundClick('NameFarmdog.mp3');})),
-                         Expanded(child: AnimalAnimation('assets/Farmlamb.png',(){p.SoundClick('SoundFarmLamb.mp3');},(){p.SoundClick('NameFarmsheep.mp3');})),
-                       ],
-                   ),
-                 ),
-
-           Expanded(
-           child: Row(
-             children: <Widget>[
-               Expanded(child: AnimalAnimation('assets/Farmhorse.png',(){p.SoundClick('SoundFarmhorse.mp3');},(){p.SoundClick('NameFarmhorse.mp3');})),
-               Expanded(child: AnimalAnimation('assets/Farmcamel.png',(){p.SoundClick('SoundFarmcamel.mp3');},(){p.SoundClick('NameFarmcamel.mp3');}))
-              // image_container('assets/rabit.png',(){}),
-             ],
-           ),
-           ),
-
-                HomeButton() ,
-                 Container(
-                   height: 15,
-                   width: 150,
-                 ),
-
-               ],
+               ),
              ),
+
+
            ),
-
-
-         ),
+      ),
     );
   }
 }

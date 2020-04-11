@@ -1,11 +1,10 @@
 import 'package:audioplayers/audio_cache.dart';
-import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 class PlaySound  {
 
   static AudioPlayer player = new AudioPlayer();
 
-  AudioCache cache = AudioCache(fixedPlayer: player); // you have this
+  AudioCache cache = AudioCache(fixedPlayer: player);
 
 
   Future SoundClick(String path)
@@ -20,12 +19,11 @@ void AnimalNameSound(String path)
 }
 
   void  stopFile() {
-    print('click stopp');
-    //player?.stop();
-    player.stop(); // stop the file like this
+
+
+    player.stop();
   }
 
 
 }
 
-// Future AudioPlayer audio = await AudioCache.play("filetobeloaded.mp3");

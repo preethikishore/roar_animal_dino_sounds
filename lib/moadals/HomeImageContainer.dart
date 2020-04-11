@@ -11,9 +11,8 @@ class HomeimageContainer  extends StatelessWidget {
 
     return GestureDetector(
       onTap: action ,
-      child: CircleAvatar(
-        radius: 80.0,
-        backgroundColor:Colors.white ,
+      child: Container(
+
         child: Image.asset((image_data),
           height:175,
           width: 175,

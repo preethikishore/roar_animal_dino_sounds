@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:roar_animal_dino_sounds/Screens/welcome.dart';
 import 'package:flutter/services.dart';
+import 'package:roar_animal_dino_sounds/main_home_page.dart';
 
 void main() => runApp(AnimalSound());
 
@@ -14,14 +14,14 @@ class AnimalSound extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.white,
-
         scaffoldBackgroundColor:Colors.white,
-
-
       ),
 
-      home: welcome(),
+      home: mainhome(),
+     //MemoryBird(),
+
 
     );
+
   }
 }
