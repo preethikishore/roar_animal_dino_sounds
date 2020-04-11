@@ -37,10 +37,10 @@ class PuzzlePieceState extends State<PuzzlePiece> {
 
   @override
   Widget build(BuildContext context) {
-    final imageWidth = MediaQuery.of(context).size.height;
-    final imageHeight = MediaQuery.of(context).size.width *
-        MediaQuery.of(context).size.height /
-        widget.imageSize.height;
+    final imageWidth = MediaQuery.of(context).size.width;
+    final imageHeight = MediaQuery.of(context).size.height *
+        MediaQuery.of(context).size.width /
+        widget.imageSize.width;
     final pieceWidth = imageWidth / widget.maxCol;
     final pieceHeight = imageHeight / widget.maxRow;
 

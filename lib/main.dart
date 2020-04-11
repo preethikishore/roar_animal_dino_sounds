@@ -8,8 +8,8 @@ class AnimalSound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,
+//      DeviceOrientation.portraitUp,
     ]);
     return MaterialApp(
       theme: ThemeData.dark().copyWith(

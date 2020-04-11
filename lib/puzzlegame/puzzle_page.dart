@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/Puzzlepiece.dart';
-import 'package:flutter/services.dart';
 
 class PuzzlePage extends StatefulWidget {
 
@@ -68,10 +67,6 @@ class _PuzzlePageState extends State<PuzzlePage> {
   }
 
   void initState() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-    ]);
 
     super.initState();
     Timer(Duration(seconds: 1), runTimer);
@@ -187,7 +182,7 @@ class _PuzzlePageState extends State<PuzzlePage> {
               children: <Widget>[
                 Container(
                   child: time < 4
-                        ? Expanded(child: Center(child: images[i]))
+                        ? Expanded(child: images[i])
                         : Expanded(child: Center(child: Stack(children: pieces))),
                 ),
                 FlatButton(child: Text("Next",
