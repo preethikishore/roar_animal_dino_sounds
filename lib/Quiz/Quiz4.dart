@@ -4,13 +4,10 @@ import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/Quiz/Quiz5.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
 import 'package:roar_animal_dino_sounds/moadals/QuizPanel.dart';
-import 'package:roar_animal_dino_sounds/moadals/HomeButton.dart';
+
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 class Quiz4 extends StatelessWidget {
-
-  static const Color color = const Color(0xff13AC00) ;
-
-
 
   PlaySound p = new PlaySound();
 
@@ -20,7 +17,7 @@ class Quiz4 extends StatelessWidget {
 
     return Container(
 
-      decoration: Quiz_boxdecoration ,
+      decoration: boxdecoration ,
       child: Scaffold(
           backgroundColor: Colors.transparent,
 
@@ -78,7 +75,8 @@ class Quiz4 extends StatelessWidget {
                       ),
                     ),
 
-                    Expanded(child: HomeButton()),
+                    Expanded(child:  MainHomeButton(),),
+
                     Expanded(
                       child: Container(
                           height: 60,

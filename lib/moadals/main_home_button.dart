@@ -4,9 +4,10 @@ import 'package:roar_animal_dino_sounds/main_home_page.dart';
 import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 
 class MainHomeButton extends StatelessWidget {
-  static const color = const Color(0xff4c64db);
-  static const insidecolor = const Color(0xffeff4f1);
-  static const outsidecolor = const Color(0xff13AC00);
+
+  static const insidecolor = const Color(0xffde6000);
+
+
   PlaySound p = new PlaySound();
   //HomeButton();
 
@@ -18,15 +19,10 @@ class MainHomeButton extends StatelessWidget {
         context, MaterialPageRoute(builder: (context) => mainhome()),
       );
       },
-      child: CircleAvatar(
-        backgroundColor: outsidecolor,
-        radius: 50.0,
-        child: Icon(
-          Icons.home,
-          color: insidecolor,
-          size: 30.0,
-        ),
-
+      child: Icon(
+        Icons.home,
+        color: insidecolor,
+        size: 40.0,
       ),
     );
   }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:roar_animal_dino_sounds/AnimationTest.dart';
 import 'package:roar_animal_dino_sounds/Screens/welcome.dart';
 import 'package:roar_animal_dino_sounds/homegame.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
 import 'package:roar_animal_dino_sounds/moadals/HomeImageContainer.dart';
 import 'package:roar_animal_dino_sounds/Test.dart';
 import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
@@ -93,86 +95,87 @@ class _mainhomeState extends State<mainhome> {
 
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/ABackground.jpg"), fit: BoxFit.cover)),
+                image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
         child: Scaffold(
             backgroundColor: Colors.transparent,
 
             body: SafeArea(
               child: Container(
 
-                child: Column(
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Expanded(
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(child: AnimalAnimation( 'assets/home1.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
+                            Text('ROAR & FUN',
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.w800,
+                              fontStyle: FontStyle.italic,
+                              color: Color(0xffde6000)
+                            ),),
 
-                  children: <Widget>[
-                    Expanded(
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(child: AnimalAnimation( 'assets/home1.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
-                          Expanded(child: AnimalAnimation( 'assets/home2.png',() {p.SoundClick('SoundAnimalTiger.mp3'); } ,(){}),),
-                          Expanded(child: AnimalAnimation( 'assets/home3.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
-                          Expanded(child: AnimalAnimation( 'assets/home5.png',() {p.SoundClick('SoundBirdParrot.mp3'); } ,(){}),),
-//                          Expanded(child: AnimalAnimation( 'assets/home6.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
-                        ],
+                           Expanded(child: AnimalAnimation( 'assets/home6.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
+                          ],
+                        ),
                       ),
-                    ),
-
-                    // Title_Label('Home Page',color) ,
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Expanded(
-                            child: HomeimageContainer('assets/homekitten.png',(){ p.SoundClick('SoundFarmCat.mp3') ;
-                            }),
-                          ),
-                          Column(children: <Widget>[
+                       //Spacer(),
+                      // Title_Label('Home Page',color) ,
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
                             Expanded(
-                              child: HomeimageContainer('assets/animalsound.png',(){ Navigator.push(
-                                context, MaterialPageRoute(builder: (context) => welcome()),
-                              );
-                              },),
+                              child: MainHomeimageContainer('assets/homekitten.png',(){ p.SoundClick('SoundFarmCat.mp3') ;
+                              }),
                             ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                              Expanded(
+                                child: HomeimageContainer('assets/boardsounds.png',(){ Navigator.push(
+                                  context, MaterialPageRoute(builder: (context) => welcome()),
+                                );
+                                },),
+                              ),
 
 
-                            Expanded(
-                              child: HomeimageContainer('assets/games.png',(){ Navigator.push(
-                                context, MaterialPageRoute(builder: (context) =>  homegame()),
-                              );
-                              },),
-                            ),
-                            Expanded(
-                              child: HomeimageContainer('assets/sleepingpanda.png',() async{
+                              Expanded(
+                                child: HomeimageContainer('assets/boardgames.png',(){ Navigator.push(
+                                  context, MaterialPageRoute(builder: (context) =>  homegame()),
+                                );
+                                },),
+                              ),
+                              Expanded(
+                                child: HomeimageContainer('assets/boardsleep.png',() async{
 
-                                MyGame myGame = MyGame();
-                                myGame.loadGame();
-                              },),
+                                  MyGame myGame = MyGame();
+                                  myGame.loadGame();
+                                },),
 
-                            ),
+                              ),
 
-                          ],)
+                            ],)
 
-                        ],
+                          ],
 
+                        ),
                       ),
-                    ),
 
 
-
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: TopAnimationHome(  () { p.SoundClick('Homesquirrel.wav'); },'assets/squirel.png' )
-                    ),
-
-
-
-
-                    Expanded(
-                      child: Container(
-                          height: 60,
-                          child: new Placeholder(color:Colors.transparent)
+                      Expanded(
+                        child: Container(
+                            height: 60,
+                            child: new Placeholder(color:Colors.transparent)
+                        ),
                       ),
-                    ),
 
-                  ],
+                    ],
+                  ),
                 ),
               ),
             )

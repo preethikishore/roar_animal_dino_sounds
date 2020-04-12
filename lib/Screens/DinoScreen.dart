@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:roar_animal_dino_sounds/Screens/welcome.dart';
 import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/AnimationTest.dart';
 import 'package:roar_animal_dino_sounds/moadals/HomeButton.dart';
 import 'dart:io';
 
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 class DinoScreen extends StatelessWidget {
 
@@ -20,7 +22,7 @@ class DinoScreen extends StatelessWidget {
 
     return Container(
 
-      decoration: sound_boxdecoration,
+      decoration: boxdecoration,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -29,6 +31,10 @@ class DinoScreen extends StatelessWidget {
             child: Column(
 
               children: <Widget>[
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child:MainHomeButton(),),
+
 
                 Expanded(
                   child: Row(
@@ -66,8 +72,17 @@ class DinoScreen extends StatelessWidget {
 
                   ),
                 ),
-
-                HomeButton() ,
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: FlatButton(
+                    child: Image.asset('assets/boardnext.png',
+                      height: 50,
+                      width: 90,),
+                    onPressed: (){ Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => welcome()),);},
+                  ),
+                )
+                 ,
                 Expanded(
                   child: Container(
                       height: 10,

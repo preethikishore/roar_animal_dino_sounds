@@ -8,11 +8,7 @@ import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/puzzle_page.dart';
 
-
-
 class homegame extends StatefulWidget {
-
-  static const Color color = const Color(0xff13AC00) ;
 
   @override
   _homegameState createState() => _homegameState();
@@ -22,65 +18,47 @@ class _homegameState extends State<homegame> {
 
   PlaySound p = new PlaySound();
 
-  Future<bool> _onbackpressed()
-  async {
-    return showDialog(
-
-        context: context,
-        builder: (context)=> AlertDialog(
-          title: Text('Do you really want to exit the games?'),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('No'),
-              onPressed: ()=> Navigator.pop(context,false),
-            ),
-            FlatButton(
-              child: Text('Yes'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>mainhome())),
-            ),
-          ],
-        )
-    ) ??
-        false;
-  }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _onbackpressed,
-      child: Container(
+    return Container(
 
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/ABackground.jpg"), fit: BoxFit.cover)),
-        child: Scaffold(
-            backgroundColor: Colors.transparent,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
+      child: Scaffold(
 
-            body: SafeArea(
-              child: Container(
+          backgroundColor: Colors.transparent,
 
+          body: SafeArea(
+            child: Container(
+
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
-
+                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child:MainHomeButton(),),
+
                     Expanded(
                       child: Row(
                         children: <Widget>[
-                          Expanded(child: AnimalAnimation( 'assets/home1.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
-                          Expanded(child: AnimalAnimation( 'assets/home3.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
-                         // Expanded(child: AnimalAnimation( 'assets/home4.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
                           Expanded(child: AnimalAnimation( 'assets/home5.png',() {p.SoundClick('SoundBirdParrot.mp3'); } ,(){}),),
                           Expanded(child: AnimalAnimation( 'assets/home7.png',() {p.SoundClick('SoundBirdSparrow.mp3'); } ,(){}),),
                         ],
                       ),
                     ),
-
+                //  Spacer(flex: 2,),
                     // Title_Label('Home Page',color) ,
                     Expanded(
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                       // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Expanded(
-                            child: HomeimageContainer('assets/home8.png',(){ p.SoundClick('SoundFarmCat.mp3') ;
+                            child: HomeimageContainer('assets/homegame.png',(){ p.SoundClick('SoundAnimalmonkey.mp3') ;
                             }),
                           ),
                           Column(children: <Widget>[
@@ -92,7 +70,7 @@ class _homegameState extends State<homegame> {
                             ),
 
                             Expanded(
-                              child: HomeimageContainer('assets/boardmemorygame.png',(){ Navigator.push(
+                              child: HomeimageContainer('assets/boardmemory.png',(){ Navigator.push(
                                 context, MaterialPageRoute(builder: (context) =>  Memoryhome()),
                               );
                               },),
@@ -105,11 +83,6 @@ class _homegameState extends State<homegame> {
 
                       ),
                     ),
-                   MainHomeButton(),
-                    Align(
-                        alignment: Alignment.bottomRight,
-                        child: TopAnimationHome(  () { p.SoundClick('Homesquirrel.wav'); },'assets/squirel.png' )
-                    ),
 
 
 
@@ -118,20 +91,21 @@ class _homegameState extends State<homegame> {
                       child: Container(
                           height: 60,
                           child: new Placeholder(color:Colors.transparent)
-                      ),
+                       ),
                     ),
 
                   ],
                 ),
               ),
-            )
-        ),
-
-
+            ),
+          )
       ),
+
+
     );
 
 
 
   }
 }
+

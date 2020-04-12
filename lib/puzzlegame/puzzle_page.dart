@@ -169,6 +169,7 @@ class _PuzzlePageState extends State<PuzzlePage> {
 
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -183,7 +184,7 @@ class _PuzzlePageState extends State<PuzzlePage> {
                 Container(
                   child: time < 4
                         ? Expanded(child: images[i])
-                        : Expanded(child: Center(child: Stack(children: pieces))),
+                        : Expanded(child: Center(child: Stack(children: pieces ))),
                 ),
                 FlatButton(child: Text("Next",
                   style: TextStyle(color: Colors.black,

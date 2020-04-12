@@ -5,6 +5,7 @@ import 'package:roar_animal_dino_sounds/Quiz/Quiz3.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
 import 'package:roar_animal_dino_sounds/moadals/QuizPanel.dart';
 import 'package:roar_animal_dino_sounds/moadals/HomeButton.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 class Quiz2 extends StatelessWidget {
 
@@ -20,16 +21,18 @@ class Quiz2 extends StatelessWidget {
 
     return Container(
 
-      decoration: Quiz_boxdecoration,
+      decoration: boxdecoration,
       child: Scaffold(
           backgroundColor: Colors.transparent,
 
           body: SafeArea(
+
             child: Padding(
               padding: EdgeInsets.only(top:90.0),
               child: Container(
                 child: Column(
                   children: <Widget>[
+
                     Expanded(child: QuizPanel('Lion','NameAnimallion.mp3')),
                     Expanded(
                       child: Row(
@@ -72,7 +75,7 @@ class Quiz2 extends StatelessWidget {
                           ]
                       ),
                     ),
-                    Expanded(child: HomeButton()),
+                  MainHomeButton(),
                     Expanded(
                       child: Container(
                           height: 60,

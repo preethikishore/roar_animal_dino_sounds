@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
 
 
+const color  = Color(0xffde6000);
 const boxdecoration = BoxDecoration(
     image: DecorationImage(
-        image: AssetImage("assets/ABackground.jpg"), fit: BoxFit.cover));
+        image: AssetImage("assets/bghome1.png"), fit: BoxFit.cover));
 
-const sound_boxdecoration = BoxDecoration(
-    image: DecorationImage(
-        image: AssetImage("assets/ABackground.jpg"), fit: BoxFit.cover));
-const Quiz_boxdecoration = BoxDecoration(
-    image: DecorationImage(
-        image: AssetImage("assets/ABackground.jpg"), fit: BoxFit.cover));
 const home_boxdecoration = BoxDecoration(
     image: DecorationImage(
-        image: AssetImage("assets/spring.jpg"), fit: BoxFit.cover));
+        image: AssetImage("assets/bghome1.jpg"), fit: BoxFit.cover));
 
 
-const style_game_over = TextStyle(color: Colors.red,
+const style_game_over = TextStyle(color: Color(0xffde6000),
     fontSize: 30,
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.italic
 );
  const Quizlabel= TextStyle(fontSize: 20.0,
       fontWeight: FontWeight.bold,
-      color:  Color(0xff13AC00),
+      color:  Color(0xffde6000),
  );
 const  Imageradius = 80.0;
 const image_width = 70.0;

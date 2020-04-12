@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:roar_animal_dino_sounds/Screens/BirdScreen2.dart';
+import 'package:roar_animal_dino_sounds/Screens/welcome.dart';
 import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/moadals/HomeButton.dart';
 import 'package:roar_animal_dino_sounds/AnimationTest.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 
 
@@ -22,7 +24,7 @@ class BirdsScreen extends StatelessWidget {
 
     return Container(
 
-      decoration: sound_boxdecoration,
+      decoration: boxdecoration,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -31,6 +33,10 @@ class BirdsScreen extends StatelessWidget {
             child: Column(
 
               children: <Widget>[
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child:MainHomeButton(),),
+
 
                 Expanded(
                   child: Row(
@@ -71,19 +77,25 @@ class BirdsScreen extends StatelessWidget {
                 ),
 
 
-
-                  Align(
-                      alignment: Alignment.bottomCenter,
-                      child: HomeButton()),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: FlatButton(child: Image.asset('assets/arrow.png',
-                  height: 150,
-                  width: 120,)
-                    ,onPressed: (){ Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => BirdsScreen2()),
-                    );
-                    },
+                Expanded(
+                  child: Row(
+                    children: <Widget>[
+                      FlatButton(child: Image.asset('assets/boardback.png',
+                        height: 50,
+                        width: 90,
+                      ),
+                          onPressed:(){ Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => welcome()),);}
+                      ),
+                      Spacer(),
+                      FlatButton(
+                        child: Image.asset('assets/boardnext.png',
+                          height: 50,
+                          width: 90,),
+                        onPressed: (){ Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => BirdsScreen2() ),);},
+                      )
+                    ],
                   ),
                 ),
 

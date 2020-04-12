@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class HomeimageContainer  extends StatelessWidget {
-   static const color = const Color(0xff13AC00);
+class MainHomeimageContainer  extends StatelessWidget {
+//  static const color = const Color(0xff13AC00);
   final String image_data;
   final Function action;
-  HomeimageContainer(this.image_data,this.action) ;
+ MainHomeimageContainer(this.image_data,this.action) ;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,8 @@ class HomeimageContainer  extends StatelessWidget {
       child: Container(
 
         child: Image.asset((image_data),
-          height:80,
-          width: 150,
+          height:220,
+          width: 200,
         ),
 
       ),

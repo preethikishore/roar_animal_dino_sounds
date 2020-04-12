@@ -22,9 +22,7 @@ class QuizOne extends StatelessWidget {
 
     return Container(
 
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/spring.jpg"), fit: BoxFit.cover)),
+      decoration: boxdecoration,
       child: Scaffold(
           backgroundColor: Colors.transparent,
 
@@ -36,27 +34,9 @@ class QuizOne extends StatelessWidget {
                 child: Column(
 
                   children: <Widget>[
-
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      FlatButton( onPressed:(){
-                        p.SoundClick('NameAnimalbear.mp3');
-                      } ,
-                        child: Text('BEAR',
-                        style: Quizlabel,),
-                      ),
-                      FlatButton( onPressed:(){
-                        p.SoundClick('NameAnimalbear.mp3');
-                      } ,
-                       child:Image.asset('assets/Speaker.png',
-                       width: 30.0,
-                        height: 30.0  ,
-                       ),
-                      ),
-                    ],
-                  ) ,
+                    Expanded(
+                      child: QuizPanel('Bear','NameAnimalbear.mp3'),
+                    ),
                     Expanded(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
