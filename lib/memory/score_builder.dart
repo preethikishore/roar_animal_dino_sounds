@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 class score_builder extends StatelessWidget {
   const score_builder({
@@ -23,16 +24,7 @@ class score_builder extends StatelessWidget {
               fontSize: 32.0,
               color: Colors.yellowAccent,
             )),
-        FlatButton(
-          child:Text('Exit',
-            style: TextStyle(fontSize: 20,
-                color: Colors.yellow,
-                fontWeight: FontWeight.w900),)
-          ,
-          onPressed:()=>Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Memoryhome()),
-          ),
-        ),
+           MainHomeButton(),
         Text(score.toString(),
             style: TextStyle(
               fontSize: 32.0,

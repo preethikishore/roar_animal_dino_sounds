@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/memory/dino/memory_dino.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 class DinoGameOver extends StatelessWidget {
 
@@ -12,33 +13,22 @@ class DinoGameOver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-      Future<bool> _onbackpressed() async {
-        return showDialog(
+    Future <bool> backscreen()
+    async{
 
-            context: context,
-            builder: (context) =>
-                AlertDialog(
-                  title: Text('Do you want to restart the game?'),
-                  actions: <Widget>[
-                    FlatButton(
-                      child: Text('Yes'),
-                      onPressed: () =>
-                          Navigator.push(context, MaterialPageRoute(
-                              builder: (context) => MemoryDino())),
-                    ),
-                  ],
-                )
-        ) ??
-            false;
-      }
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()))??
+          false;
 
-      return WillPopScope(
-        onWillPop: _onbackpressed,
+    }
+
+
+    return WillPopScope(
+        onWillPop: backscreen,
         child: Container(
 
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/gameover.png"), fit: BoxFit.cover)),
+                  image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: Container(
@@ -46,6 +36,9 @@ class DinoGameOver extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: MainHomeButton()),
                   Container(
                     child: Text('Game Over',
                     style: style_game_over,),
@@ -58,10 +51,7 @@ class DinoGameOver extends StatelessWidget {
                       children: <Widget>[
                         FlatButton(
                           child: Text('RePlay', style:
-                          TextStyle(fontSize: 30,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green),
+                          style_game_over,
                           ),
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(
@@ -70,10 +60,7 @@ class DinoGameOver extends StatelessWidget {
                         ),
                         FlatButton(
                           child: Text('New Set', style:
-                          TextStyle(fontSize: 30,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green),
+                         style_game_over
                           ),
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(
@@ -86,7 +73,7 @@ class DinoGameOver extends StatelessWidget {
                   Container(
                     child: score == 800
                         ? Image.asset('assets/topscore.png')
-                        : Image.asset('assets/welldone.png'),
+                        : Text('Try Again',style: style_game_over,),
                   )
 
                 ],

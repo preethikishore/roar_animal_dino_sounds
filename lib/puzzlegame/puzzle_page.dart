@@ -1,13 +1,15 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/Puzzlepiece.dart';
 
 class PuzzlePage extends StatefulWidget {
 
-
   final String title;
-  final int rows = 3;
-  final int cols = 3;
+  final int rows = 4;
+  final int cols = 4;
 
   PuzzlePage({Key key, this.title}) : super(key: key);
 
@@ -16,15 +18,18 @@ class PuzzlePage extends StatefulWidget {
 }
 
 class _PuzzlePageState extends State<PuzzlePage> {
+  PlaySound p = new PlaySound();
   Image  _image;
   List<Widget> pieces = [];
-  List<Image> images = [Image.asset('assets/A01.png'),
-                        Image.asset('assets/A02.png'),
+  List<Image> images = [Image.asset('assets/puzzle/P01.jpg'),
+                        Image.asset('assets/puzzle/P02.jpg'),
     Image.asset('assets/A03.png'),
     Image.asset('assets/A04.png'),
     Image.asset('assets/A05.png'),
 
+
   ];
+  int count = 0;
   int i = 0;
   var image;
   int time = 0;
@@ -34,35 +39,39 @@ class _PuzzlePageState extends State<PuzzlePage> {
       setState(() {
         this.time += 1;
         runTimer();
+        if (this.time==4) {
+          p.SoundClick("PSoundbreak.mp3");
+        }
       });
     });
   }
 
-
-
   void increment(){
     time = 0;
-    if(i >= images.length - 1)
-    {
-      AlertDialog(
-        title: new Text("Alert Dialog title"),
-        content: new Text("Alert Dialog body"),
-        actions: <Widget>[
-          // usually buttons at the bottom of the dialog
-          new FlatButton(
-            child: new Text("Close"),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    }
-    else {
+//    if(i >= images.length - 1)
+//    {
+//      AlertDialog(
+//        title: new Text("Alert Dialog title"),
+//        content: new Text("Alert Dialog body"),
+//        actions: <Widget>[
+//          // usually buttons at the bottom of the dialog
+//          new FlatButton(
+//            child: new Text("Close"),
+//            onPressed: () {
+//              Navigator.of(context).pop();
+//            },
+//          ),
+//        ],
+//      );
+//    }
+//    else {
+//
+//      i ++;
+//
+//    }
 
-      i ++;
-
-    }
+    var rng = new Random();
+    i=rng.nextInt(images.length - 1 );
 
   }
 
@@ -85,8 +94,6 @@ class _PuzzlePageState extends State<PuzzlePage> {
     if (image != null) {
       setState(() {
         _image = image;
-        print('got image');
-
       });
 
 
@@ -98,6 +105,7 @@ class _PuzzlePageState extends State<PuzzlePage> {
   Future getImage() async {
 
     image = images[i];
+    count = 0;
 
     if (image != null) {
       setState(() {
@@ -105,9 +113,7 @@ class _PuzzlePageState extends State<PuzzlePage> {
         print('got image');
         pieces.clear();
       });
-
       splitImage(image);
-
     }
   }
 
@@ -127,7 +133,6 @@ class _PuzzlePageState extends State<PuzzlePage> {
     // return completer.future;
     final Size imageSize = await completer.future;
     return imageSize;
-
   }
 
 
@@ -164,48 +169,71 @@ class _PuzzlePageState extends State<PuzzlePage> {
   void sendToBack(Widget widget) {
     setState(() {
       pieces.remove(widget);
-      pieces.insert(3, widget);
+      pieces.insert(0, widget);
+      count++;
+      print(count);
+      if (count >= 16)
+      {
+        print(">16");
+        p.SoundClick("win.mp3");
+      }
+      else
+        {
+          print("<=16");
+          p.SoundClick("puzzlepositive.mp3");
+        }
     });
 
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
 
-        body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/bgpuzzle.jpg"), fit: BoxFit.cover)),
-          child: SafeArea(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  child: time < 4
-                        ? Expanded(child: images[i])
-                        : Expanded(child: Center(child: Stack(children: pieces ))),
-                ),
-                FlatButton(child: Text("Next",
-                  style: TextStyle(color: Colors.black,
-                    fontSize: 24,
+          body: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/bgpuzzle.jpg"), fit: BoxFit.cover)),
+            child: SafeArea(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    child: time < 4
+                          ? Expanded(child: Align(alignment: Alignment.topLeft,child: images[i]))
+                          : Expanded(child: Align(alignment:Alignment.bottomLeft,child: Stack(children: pieces ))),
                   ),
 
-                ),
-                  onPressed: (){
-                    setState(() {
-                      increment();
+                  FlatButton(
+                    //color: Colors.white,
+                    child: Image.asset('assets/boardnext.png',
+                  height: 30,
+                  width: 50,),
+                    onPressed: (){
+                      setState(() {
+                        increment();
 
-                      print("second image");
-                      getImage();
-                    });
 
-                  },
-                )
-              ],
+                        getImage();
+                      });
+
+                    },
+                  ),
+                  Container(
+                      color: Colors.white,
+                      height: 40,
+                      child:  Placeholder(color:Colors.transparent)
+                  )
+
+                ],
+              ),
+
+
+
+
             ),
-          ),
-        )
+          )
+      ),
     ) ;
   }
 }

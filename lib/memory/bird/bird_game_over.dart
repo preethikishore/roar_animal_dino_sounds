@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/memory/bird/memory_bird.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 class BirdGameOver extends StatelessWidget {
 
   final  score;
@@ -32,7 +33,7 @@ class BirdGameOver extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/gameover.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Container(
@@ -40,6 +41,9 @@ class BirdGameOver extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: MainHomeButton()),
                 Container(
                   child: Text('Game Over',
                   style: style_game_over,),
@@ -77,7 +81,7 @@ class BirdGameOver extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  child: score == 800 ? Image.asset('assets/topscore.png'):Image.asset('assets/welldone.png'),
+                  child: score == 800 ? Image.asset('assets/topscore.png'):Text('Try Again',style: style_game_over,),
                 )
 
               ],

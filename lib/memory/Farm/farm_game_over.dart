@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/memory/Farm/memory_farm.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 class FarmGameOver extends StatelessWidget {
 
@@ -10,31 +11,23 @@ class FarmGameOver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<bool> _onbackpressed()
-    async {
-      return showDialog(
 
-          context: context,
-          builder: (context)=> AlertDialog(
-            title: Text('Do you want to restart the game?'),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('Yes'),
-                onPressed: () =>  Navigator.push(context, MaterialPageRoute(builder: (context) => MemoryFarm())),
-              ),
-            ],
-          )
-      ) ??
-          false;
+
+    Future <bool> backscreen()
+    async{
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) => MemoryFarm()))??
+      false;
+
     }
 
 
     return WillPopScope(
-      onWillPop: _onbackpressed ,
+      onWillPop: backscreen,
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/gameover.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Container(
@@ -42,6 +35,10 @@ class FarmGameOver extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
+
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: MainHomeButton()),
                 Container(
                   child: Text('Game Over',
                   style: style_game_over,
@@ -54,12 +51,8 @@ class FarmGameOver extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       FlatButton(
-                        child: Text('RePlay',style:
-                        TextStyle(fontSize: 30,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green),
-                        ),
+                        child: Text('RePlay',style:style_game_over)
+                        ,
                         onPressed: (){
 
                           Navigator.push(context, MaterialPageRoute(builder: (context) => MemoryFarm()));
@@ -67,10 +60,7 @@ class FarmGameOver extends StatelessWidget {
                       ),
                       FlatButton(
                         child: Text('New Set',style:
-                        TextStyle(fontSize: 30,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green),
+                        style_game_over,
                         ),
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()));
@@ -80,7 +70,7 @@ class FarmGameOver extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  child: score == 800 ? Image.asset('assets/topscore.png'):Image.asset('assets/welldone.png'),
+                  child: score == 800 ? Image.asset('assets/topscore.png'):Text('Try Again',style: style_game_over,),
                 )
 
               ],

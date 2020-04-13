@@ -4,7 +4,6 @@ import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/Quiz/Quiz4.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
 import 'package:roar_animal_dino_sounds/moadals/QuizPanel.dart';
-import 'package:roar_animal_dino_sounds/moadals/HomeButton.dart';
 import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 
 class Quiz3 extends StatelessWidget {

@@ -1,9 +1,11 @@
 
 //import 'package:roar_animal_dino_sounds/memory/main.dart';
 import 'package:flutter/material.dart';
+import 'package:roar_animal_dino_sounds/memory/Farm/memory_farm.dart';
 import 'package:roar_animal_dino_sounds/memory/animal/animal_memory.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
 class GameOver extends StatelessWidget {
 
   final  score;
@@ -12,34 +14,23 @@ class GameOver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Future<bool> _onbackpressed() async {
-      return showDialog(
+    Future <bool> backscreen()
+    async{
 
-          context: context,
-          builder: (context) =>
-              AlertDialog(
-                title: Text('Do you want to restart the game?'),
-                actions: <Widget>[
-                  FlatButton(
-                    child: Text('Yes'),
-                    onPressed: () =>
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => MemoryAnimalHomePage())),
-                  ),
-                ],
-              )
-      ) ??
+      Navigator.push(context, MaterialPageRoute(builder: (context) => MemoryAnimalHomePage()))??
           false;
+
     }
 
 
 
+
     return WillPopScope(
-      onWillPop: _onbackpressed,
+      onWillPop: backscreen,
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/gameover.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Container(
@@ -47,6 +38,11 @@ class GameOver extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
+
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child:MainHomeButton(),),
+
                 Container(
                   child: Text('Game Over',
                   style: style_game_over,),
@@ -59,11 +55,7 @@ class GameOver extends StatelessWidget {
                     children: <Widget>[
                       FlatButton(
                         child: Text('RePlay',style:
-                        TextStyle(fontSize: 30,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green),
-                        ),
+                       style_game_over),
                         onPressed: (){
 
                          Navigator.push(context, MaterialPageRoute(builder: (context) => MemoryAnimalHomePage()));
@@ -71,10 +63,7 @@ class GameOver extends StatelessWidget {
                       ),
                       FlatButton(
                         child: Text('New Set',style:
-                        TextStyle(fontSize: 30,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green),
+                        style_game_over,
                         ),
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()));
@@ -84,7 +73,7 @@ class GameOver extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  child: score == 800 ? Image.asset('assets/topscore.png'):Image.asset('assets/welldone.png'),
+                  child: score == 800 ? Image.asset('assets/topscore.png'):Text('Try Again',style: style_game_over,),
                 )
 
               ],
