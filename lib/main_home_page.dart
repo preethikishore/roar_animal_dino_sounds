@@ -1,7 +1,10 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:roar_animal_dino_sounds/AnimationTest.dart';
 import 'package:roar_animal_dino_sounds/Screens/welcome.dart';
+import 'package:roar_animal_dino_sounds/game/MyGame.dart';
+import 'package:roar_animal_dino_sounds/game/Sleeping_panda.dart';
 import 'package:roar_animal_dino_sounds/homegame.dart';
 import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
 import 'package:roar_animal_dino_sounds/moadals/HomeImageContainer.dart';
@@ -9,7 +12,7 @@ import 'package:roar_animal_dino_sounds/Test.dart';
 import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'dart:io';
-import 'package:roar_animal_dino_sounds/game/MyGame.dart';
+
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
 
 class mainhome extends StatefulWidget {
@@ -109,8 +112,7 @@ class _mainhomeState extends State<mainhome> {
                     children: <Widget>[
                       Expanded(
                         child: Row(
-                          children: <Widget>[
-                            Expanded(child: AnimalAnimation( 'assets/home1.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
+                          children: <Widget>[ Expanded(child: AnimalAnimation( 'assets/home7.png',() {p.SoundClick('SoundBirdSparrow.mp3'); } ,(){}),),
                             Text('ROAR & FUN',
                             style: TextStyle(
                               fontSize: 40,
@@ -119,7 +121,9 @@ class _mainhomeState extends State<mainhome> {
                               color: Color(0xffde6000)
                             ),),
 
-                           Expanded(child: AnimalAnimation( 'assets/home6.png',() {p.SoundClick('SoundAnimalmonkey.mp3'); } ,(){}),),
+                            Expanded(child: AnimalAnimation( 'assets/home5.png',() {p.SoundClick('SoundBirdParrot.mp3'); } ,(){}),),
+
+
                           ],
                         ),
                       ),
@@ -152,10 +156,18 @@ class _mainhomeState extends State<mainhome> {
                               ),
                               Expanded(
                                 child: HomeimageContainer('assets/boardsleep.png',() async{
+                                  if (mounted) {
+                                    setState(() {
+                                      MyGame game = new MyGame();
+                                      game.loadGame();
+                                    });
+                                  }
+//
+//                                  MyGame game = new MyGame();
+//                                  game.loadGame();
+                                }
 
-                                  MyGame myGame = MyGame();
-                                  myGame.loadGame();
-                                },),
+                                ),
 
                               ),
 

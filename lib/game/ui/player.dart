@@ -31,7 +31,7 @@ class Player
     final size = gameController.tileSize *3;
     playerRect = Rect.fromLTWH(
         gameController.screenSize.width/2.88 - size/2,
-        gameController.screenSize.height - size*1.5,
+        gameController.screenSize.height - size*2,
         size*2,size*2
     );
   }

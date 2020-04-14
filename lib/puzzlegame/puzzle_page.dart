@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
@@ -21,18 +22,36 @@ class _PuzzlePageState extends State<PuzzlePage> {
   PlaySound p = new PlaySound();
   Image  _image;
   List<Widget> pieces = [];
-  List<Image> images = [Image.asset('assets/puzzle/P01.jpg'),
-                        Image.asset('assets/puzzle/P02.jpg'),
-    Image.asset('assets/A03.png'),
-    Image.asset('assets/A04.png'),
-    Image.asset('assets/A05.png'),
-
+   static final List<Image> images = [Image.asset('assets/puzzles/p01.jpg'),
+                        Image.asset('assets/puzzles/p02.jpg'),
+    Image.asset('assets/puzzles/p03.jpg'),
+    Image.asset('assets/puzzles/p04.jpg'),
+    Image.asset('assets/puzzles/p05.jpg'),
+    Image.asset('assets/puzzles/p06.jpg'),
+    Image.asset('assets/puzzles/p07.jpg'),
+    Image.asset('assets/puzzles/p08.jpg'),
+    Image.asset('assets/puzzles/p09.jpg'),
+    Image.asset('assets/puzzles/p10.jpg'),
+    Image.asset('assets/puzzles/p11.jpg'),
+    Image.asset('assets/puzzles/p12.jpg'),
+    Image.asset('assets/puzzles/p13.jpg'),
+    Image.asset('assets/puzzles/p14.jpg'),
+    Image.asset('assets/puzzles/p15.jpg'),
+    Image.asset('assets/puzzles/p16.jpg'),
+    Image.asset('assets/puzzles/p17.jpg'),
+    Image.asset('assets/puzzles/p18.jpg'),
+    Image.asset('assets/puzzles/p19.jpg'),
+    Image.asset('assets/puzzles/p20.jpg'),
+    Image.asset('assets/puzzles/p21.jpg'),
 
   ];
   int count = 0;
-  int i = 0;
+
   var image;
   int time = 0;
+  static final rng = new Random();
+ int i=rng.nextInt(images.length - 1 );
+ // int i = 0;
 
   void runTimer() {
     Timer(Duration(seconds: 1), () {
@@ -45,33 +64,11 @@ class _PuzzlePageState extends State<PuzzlePage> {
       });
     });
   }
-
+//
   void increment(){
     time = 0;
-//    if(i >= images.length - 1)
-//    {
-//      AlertDialog(
-//        title: new Text("Alert Dialog title"),
-//        content: new Text("Alert Dialog body"),
-//        actions: <Widget>[
-//          // usually buttons at the bottom of the dialog
-//          new FlatButton(
-//            child: new Text("Close"),
-//            onPressed: () {
-//              Navigator.of(context).pop();
-//            },
-//          ),
-//        ],
-//      );
-//    }
-//    else {
-//
-//      i ++;
-//
-//    }
-
     var rng = new Random();
-    i=rng.nextInt(images.length - 1 );
+    i=rng.nextInt(images.length);
 
   }
 
@@ -104,13 +101,14 @@ class _PuzzlePageState extends State<PuzzlePage> {
 
   Future getImage() async {
 
+
+
     image = images[i];
     count = 0;
 
     if (image != null) {
       setState(() {
         _image = image;
-        print('got image');
         pieces.clear();
       });
       splitImage(image);
@@ -176,6 +174,14 @@ class _PuzzlePageState extends State<PuzzlePage> {
       {
         print(">16");
         p.SoundClick("win.mp3");
+        Timer(Duration(seconds: 3), () {
+          setState(() {
+            increment();
+            getImage();
+
+        });
+
+        });
       }
       else
         {
@@ -203,25 +209,24 @@ class _PuzzlePageState extends State<PuzzlePage> {
                           ? Expanded(child: Align(alignment: Alignment.topLeft,child: images[i]))
                           : Expanded(child: Align(alignment:Alignment.bottomLeft,child: Stack(children: pieces ))),
                   ),
-
-                  FlatButton(
-                    //color: Colors.white,
-                    child: Image.asset('assets/boardnext.png',
-                  height: 30,
-                  width: 50,),
-                    onPressed: (){
-                      setState(() {
-                        increment();
-
-
-                        getImage();
-                      });
-
-                    },
-                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child:MainHomeButton(),),
+//                  FlatButton(
+//                    //color: Colors.white,
+//                    child: Image.asset('assets/boardnext.png',
+//                  height: 30,
+//                  width: 50,),
+//                    onPressed: (){
+//                      setState(() {
+//                        increment();
+//                        getImage();
+//                      });
+//
+//                    },
+//                  ),
                   Container(
-                      color: Colors.white,
-                      height: 40,
+                      height: 60,
                       child:  Placeholder(color:Colors.transparent)
                   )
 

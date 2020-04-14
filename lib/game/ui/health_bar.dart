@@ -7,13 +7,13 @@ class HealthBar{
   Rect healthBarRect;
   Rect remaingHelathRect;
   HealthBar(this.gameController){
-    double barwidth = gameController.screenSize.width /6;
+    double barwidth = gameController.screenSize.width /4;
     healthBarRect = Rect.fromLTWH(gameController.screenSize.width/2 - barwidth/2,
-        gameController.screenSize.height * 0.01,
-        barwidth, gameController.tileSize * 0.1);
+        gameController.tileSize * 0.1,
+        barwidth, gameController.tileSize * 0.25);
    remaingHelathRect  = Rect.fromLTWH(gameController.screenSize.width/2 - barwidth/2,
-        gameController.screenSize.height * 0.01,
-        barwidth, gameController.tileSize * 0.1);
+       gameController.tileSize * 0.1,
+        barwidth, gameController.tileSize * 0.25);
 
   }
 
@@ -27,10 +27,10 @@ class HealthBar{
 
   void update(double t)
   {
-    double barwidth = gameController.screenSize.width/6;
+    double barwidth = gameController.screenSize.width/4;
     double percentHealth = gameController.player.currentHealth / gameController.player.maxHealth;
-    remaingHelathRect = Rect.fromLTWH(gameController.screenSize.width / 6 - barwidth/2,
-        gameController.screenSize.height * 0.01,
-        barwidth * percentHealth, gameController.tileSize * 0.3);
+    remaingHelathRect = Rect.fromLTWH(gameController.screenSize.width / 2 - barwidth/2,
+        gameController.tileSize * 0.1,
+        barwidth * percentHealth, gameController.tileSize * 0.25);
   }
 }

@@ -5,8 +5,10 @@ import 'package:flame/flame.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:roar_animal_dino_sounds/game/game_controller.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:roar_animal_dino_sounds/game/bgm.dart';
+import 'package:roar_animal_dino_sounds/game/Sleeping_panda.dart';
+
 class MyGame  {
   void loadGame () async
   {
@@ -20,15 +22,34 @@ class MyGame  {
       'ui/background.png',
       'target/pandaSleep.png',
       'target/pandaUp.png',
+      'ui/sound_enabled.png',
+      'ui/sound_disabled.png',
+    ]);
+
+    Flame.audio.disableLog();
+    await BGM.preload();
+
+    await Flame.audio.loadAll(<String>[
+      'lifeloss.mp3',
+      'break.mp3',
+      'background.mp3',
+      'home.mp3',
     ]);
 
     GameController gameController = GameController(storage);
 
-    runApp(gameController.widget);
+    runApp(MaterialApp(
+        home: Scaffold(
+          body: Container(
+            child: GameWrapper(gameController),
+          ),
+        )));
+
 
     TapGestureRecognizer tapper = TapGestureRecognizer();
     tapper.onTapDown = gameController.onTapDown;
     flameUtil.addGestureRecognizer(tapper);
+    WidgetsBinding.instance.addObserver(BGMHandler());
   }
 }
 

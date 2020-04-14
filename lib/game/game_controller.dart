@@ -16,6 +16,8 @@ import 'package:roar_animal_dino_sounds/game/ui/health_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:roar_animal_dino_sounds/game/apples/toothless.dart';
 import 'package:roar_animal_dino_sounds/game/ui/orchard.dart';
+import 'package:roar_animal_dino_sounds/game/bgm.dart';
+import 'package:roar_animal_dino_sounds/game/ui/soundbtn.dart';
 
 class GameController extends Game {
   final SharedPreferences storage;
@@ -33,6 +35,7 @@ class GameController extends Game {
   StatePlay state;
   HighScoreText highScoreText;
   StartText startText;
+  SoundButton soundButton;
   bool isNewInst = true;
 
   GameController(this.storage){
@@ -52,6 +55,7 @@ class GameController extends Game {
     rand = Random();
     orchard = Orchard(this);
     player = Player(this);
+    soundButton = SoundButton(this);
     enemies = List<Enemy>();
     healthBar = HealthBar(this);
     enemySpawner = EnemySpawner(this);
@@ -60,11 +64,13 @@ class GameController extends Game {
     scoreText = ScoreText(this);
     highScoreText = HighScoreText(this);
     startText = StartText(this);
+    BGM.play(BGMType.home);
   }
   void render(Canvas c){
     // draw the Background
     orchard.render(c);
     player.render(c);
+    soundButton.render(c);
     if( state == StatePlay.menu)
     {
       startText.render(c);
@@ -101,9 +107,15 @@ class GameController extends Game {
 
   void onTapDown(TapDownDetails d)
   {
+    // sound button
+    if (soundButton.rect.contains(d.globalPosition)) {
+      soundButton.onTapDown();
+    }
+
     if( state == StatePlay.menu)
     {
       state = StatePlay.playing;
+      BGM.play(BGMType.playing);
     }
     else if (state == StatePlay.playing) {
       // check enemy is there in tap position
@@ -122,6 +134,9 @@ class GameController extends Game {
       enemies = List<Enemy>();
       enemySpawner = EnemySpawner(this);
       enemies.removeWhere((Enemy enemy) => enemy.isDead=true);
+      if (soundButton.isEnabled) {
+        Flame.audio.play('lifeloss.mp3');
+      }
 
     }
   }

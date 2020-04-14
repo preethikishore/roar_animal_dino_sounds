@@ -1,11 +1,18 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/GameEngine.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/GamePainter.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/ImageNode.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/PuzzleMagic.dart';
+import 'package:roar_animal_dino_sounds/jigsaw/jigsaw_page.dart';
+import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
 
 import '../main_home_page.dart';
 
@@ -51,6 +58,7 @@ class GamePageState extends State<GamePage> with TickerProviderStateMixin {
   Direction direction;
   bool needdraw = true;
   List<ImageNode> hitNodeList = [];
+  PlaySound p = new PlaySound();
 
   GameState gameState = GameState.loading;
 
@@ -88,67 +96,106 @@ class GamePageState extends State<GamePage> with TickerProviderStateMixin {
         ),
       );
     } else if (gameState == GameState.complete) {
+      p.SoundClick('puzzlecheer.mp3');
+      sleep(const Duration(seconds: 2));
+
       return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
-        child: Center(
-          child: Row(
+        child: SafeArea(
+          child: Column(
+
             children: <Widget>[
-              RaisedButton(
-                child: Text('Restart',
-                  style: TextStyle(fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color:  Color(0xffde6000)
+              Align(
+                alignment: Alignment.bottomLeft,
+                child:MainHomeButton(),),
+
+              Row(
+                children: <Widget>[
+
+                  Expanded(
+                    child: MainHomeimageContainer('assets/puzzleelephant.png',(){ p.SoundClick('win.mp3') ;
+                    }),
                   ),
-                ),
-                onPressed: () {
-                  GameEngine.makeRandom(nodes);
-                  setState(() {
-                    gameState = GameState.play;
-                  });
-                  showStartAnimation();
-                },
-              ),
 
-              RaisedButton(
-                child: Text('New Set',
-                  style: TextStyle(fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color:  Color(0xffde6000)
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        FlatButton(
+
+                          child:  Image.asset('assets/boardreplay.png', height: puzzleboard_height,width: puzzleboard_width,),
+                          onPressed: () {
+                            GameEngine.makeRandom(nodes);
+                            setState(() {
+                              gameState = GameState.play;
+                            });
+                            showStartAnimation();
+                          },
+                        ),
+
+                        FlatButton(
+                         child: Image.asset('assets/boardnewgame.png', height: puzzleboard_height,width: puzzleboard_width,
+                          ),
+
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => JigsawHome()));
+                          }
+                        ),
+
+
+
+
+
+                      ],
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => mainhome()));
-                }
+                ],
               ),
-
-
-
-
-
             ],
           ),
         ),
       );
+    //  Navigator.push(context,
+                      //  MaterialPageRoute(builder: (context) => JigsawHome()));
     } else {
       return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
 
-        child: Stack(
-          children: [
-            GestureDetector(
-              child: CustomPaint(
-                  painter: GamePainter(nodes, level, hitNode, hitNodeList,
-                      direction, downX, downY, newX, newY, needdraw),
-                  size: Size.infinite),
-              onPanDown: onPanDown,
-              onPanUpdate: onPanUpdate,
-              onPanEnd: onPanUp,
+        child: Column(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.topLeft,
+              child:MainHomeButton(),),
+
+            Container(
+              child: Expanded(
+                child: Stack(
+                  children: [
+                    GestureDetector(
+                      child: CustomPaint(
+                          painter: GamePainter(nodes, level, hitNode, hitNodeList,
+                              direction, downX, downY, newX, newY, needdraw),
+                          size: Size.infinite),
+                      onPanDown: onPanDown,
+                      onPanUpdate: onPanUpdate,
+                      onPanEnd: onPanUp,
+                    ),
+                  ],
+                ),
+              ),
             ),
+            Container(
+
+                height: 60,
+                child: new Placeholder(color:Colors.transparent)
+            ),
+
+
           ],
         ),
       );

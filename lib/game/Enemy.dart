@@ -47,6 +47,9 @@ class Enemy
   {
     if(!isDead){
       health--;
+      if (gameController.soundButton.isEnabled) {
+        Flame.audio.play('break.mp3');
+      }
       if(health <= 0)
       {
         isDead = true;
