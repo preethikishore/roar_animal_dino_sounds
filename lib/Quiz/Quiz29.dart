@@ -32,7 +32,7 @@ class Quiz29 extends StatelessWidget {
 
                   children: <Widget>[
 
-                    Expanded(child: QuizPanel('Tyrannosaurus','NameDinotrex.mp3')),
+                    Expanded(child: QuizPanel('Tyrannosaurus Rex','NameDinotrex.mp3')),
 
 
                     Expanded(

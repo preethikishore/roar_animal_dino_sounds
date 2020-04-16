@@ -1,90 +1,105 @@
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/memory/bird/memory_bird.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
+import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/moadals/constants.dart';
 import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
+
 class BirdGameOver extends StatelessWidget {
+  PlaySound p = new PlaySound();
 
   final  score;
   BirdGameOver({ @required this.score});
 
   @override
   Widget build(BuildContext context) {
-    Future<bool> _onbackpressed()
-    async {
-      return showDialog(
 
-          context: context,
-          builder: (context)=> AlertDialog(
-            title: Text('Do you want to restart the game?'),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('Yes'),
-                onPressed: () =>  Navigator.push(context, MaterialPageRoute(builder: (context) => MemoryBird())),
-              ),
-            ],
-          )
-      ) ??
+    Future <bool> backscreen()
+    async{
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()))??
           false;
+
     }
 
+
+
     return WillPopScope(
-      onWillPop: _onbackpressed,
+      onWillPop: backscreen,
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Container(
+          body: SafeArea(
+            child: Container(
 
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: MainHomeButton()),
-                Container(
-                  child: Text('Game Over',
-                  style: style_game_over,),
-                ),
-                Text('Score : $score',
-                style: style_game_over,),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      FlatButton(
-                        child: Text('RePlay',style:
-                        TextStyle(fontSize: 30,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green),
-                        ),
-                        onPressed: (){
+              child: Column(
 
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => MemoryBird()));
-                        },
-                      ),
-                      FlatButton(
-                        child: Text('New Set',style:
-                        TextStyle(fontSize: 30,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green),
-                        ),
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()));
-                        },
-                      ),
-                    ],
+                children: <Widget>[
+
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: MainHomeButton()),
+
+                  Container(
+                    child: Text('Game Over',
+                      style: style_game_over,
+                    ),
                   ),
-                ),
-                Container(
-                  child: score == 800 ? Image.asset('assets/topscore.png'):Text('Try Again',style: style_game_over,),
-                )
+                  Text('Score : $score',
+                    style: style_game_over,),
+                  Expanded(
+                    child: Row(
+                      children: <Widget>[
 
-              ],
+                        Expanded(
+                          child: score == 800 ? MainHomeimageContainer('assets/puzzleelephant.png',(){ p.SoundClick('win.mp3') ;
+                          }) : MainHomeimageContainer('assets/elephanttry.png',(){}) ,
+                        ),
+
+                        Expanded(
+                          child: Column(
+
+                            children: <Widget>[
+
+                              FlatButton(
+
+                                  child:  Image.asset('assets/boardreplay.png', height: puzzleboard_height,width: puzzleboard_width,),
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>MemoryBird())); }
+                              ),
+
+                              FlatButton(
+                                  child: Image.asset('assets/boardnewgame.png', height: puzzleboard_height,width: puzzleboard_width,
+                                  ),
+
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()));
+                                  }
+                              ),
+
+
+
+
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Expanded(
+                    child: Container(
+                        height: 60,
+                        child: new Placeholder(color:Colors.transparent)
+                    ),
+                  ),
+
+                ],
+              ),
             ),
           ),
         ),
@@ -92,3 +107,36 @@ class BirdGameOver extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

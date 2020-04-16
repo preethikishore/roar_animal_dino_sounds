@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeimageContainer  extends StatelessWidget {
-   static const color = const Color(0xff13AC00);
+
   final String image_data;
   final Function action;
   HomeimageContainer(this.image_data,this.action) ;
@@ -11,13 +11,16 @@ class HomeimageContainer  extends StatelessWidget {
 
     return GestureDetector(
       onTap: action ,
-      child: Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
 
-        child: Image.asset((image_data),
-          height:80,
-          width: 150,
+          child: Image.asset((image_data),
+//          height:95,
+//          width: 250,
+          ),
+
         ),
-
       ),
     );
   }

@@ -62,20 +62,22 @@ class MemoryBirdState extends State<MemoryBird> {
     return  WillPopScope(
       onWillPop: backscreen,
       child: Scaffold(
-          backgroundColor: Colors.black12,
+          backgroundColor: Colors.transparent,
           body: Container(
             decoration: boxdecoration,
-            child: Column(
-              children: <Widget>[
-                //SizedBox(height: 24.0),
-                score_builder(time: time, score: score),
-                buildBoard(),
-                Container(
-                    height: 20,
-                    child: new Placeholder(color:Colors.transparent)
-                ),
+            child: SafeArea(
+              child: Column(
+                children: <Widget>[
+                  //SizedBox(height: 24.0),
+                  score_builder(time: time, score: score),
+                  buildBoard(),
+                  Container(
+                      height: 20,
+                      child: new Placeholder(color:Colors.transparent)
+                  ),
 
-              ],
+                ],
+              ),
             ),
           )),
     );

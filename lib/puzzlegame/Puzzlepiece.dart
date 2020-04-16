@@ -125,7 +125,7 @@ class PuzzlePiecePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Paint paint = Paint()
-      ..color = Color(0x80FFFFFF)
+      ..color = Colors.red
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 

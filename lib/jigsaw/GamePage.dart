@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/GameEngine.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/GamePainter.dart';
@@ -99,6 +98,8 @@ class GamePageState extends State<GamePage> with TickerProviderStateMixin {
       p.SoundClick('puzzlecheer.mp3');
       sleep(const Duration(seconds: 2));
 
+
+
       return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -140,13 +141,13 @@ class GamePageState extends State<GamePage> with TickerProviderStateMixin {
                           ),
 
                           onPressed: () {
+                            setState(() {
+                              gameState = GameState.loading;
+                            });
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) => JigsawHome()));
                           }
                         ),
-
-
-
 
 
                       ],

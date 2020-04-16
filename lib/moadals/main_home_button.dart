@@ -13,6 +13,8 @@ class MainHomeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+
+
       onTap: (){ p.stopFile();
       Navigator.push(
         context, MaterialPageRoute(builder: (context) => mainhome()),
@@ -21,7 +23,7 @@ class MainHomeButton extends StatelessWidget {
       child: Icon(
         Icons.home,
         color: insidecolor,
-        size: 40.0,
+        size: 60.0,
       ),
     );
   }

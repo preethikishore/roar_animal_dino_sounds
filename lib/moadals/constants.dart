@@ -24,3 +24,5 @@ const  Imageradius = 80.0;
 const image_width = 70.0;
 const image_height= 70.0;
 const myAdUnitId = 'ca-app-pub-8564435465482275/1376426895';
+const  double puzzleboard_height = 80;
+const  double  puzzleboard_width = 200;

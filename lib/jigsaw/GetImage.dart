@@ -6,20 +6,7 @@ class GetImage{
     'assets/puzzles/p05.jpg',
     'assets/puzzles/p06.jpg',
     'assets/puzzles/p07.jpg',
-    'assets/puzzles/p08.jpg',
-    'assets/puzzles/p09.jpg',
-    'assets/puzzles/p10.jpg',
-    'assets/puzzles/p11.jpg',
-    'assets/puzzles/p12.jpg',
-    'assets/puzzles/p13.jpg',
-    'assets/puzzles/p14.jpg',
-    'assets/puzzles/p15.jpg',
-    'assets/puzzles/p16.jpg',
-    'assets/puzzles/p17.jpg',
-    'assets/puzzles/p18.jpg',
-    'assets/puzzles/p19.jpg',
-    'assets/puzzles/p20.jpg',
-    'assets/puzzles/p21.jpg',
+
   ];
 }
 

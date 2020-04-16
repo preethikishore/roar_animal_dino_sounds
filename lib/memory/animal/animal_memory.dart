@@ -26,12 +26,14 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
     super.initState();
     Timer(Duration(seconds: 2), runTimer);
 
-
   }
+
   void runTimer() {
+
     Timer(Duration(seconds: 1), () {
       if (_timestatus == true) {
         if (time >= 50 || score >= 800) {
+
           p.SoundClick('puzzlecheer.mp3');
           Navigator.push(context, MaterialPageRoute(
               builder: (context) => GameOver(score: score,)));
@@ -47,6 +49,10 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
 
 
   }
+
+
+
+
   Future <bool> backscreen()
   async{
     _timestatus = false;
@@ -61,20 +67,22 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
     return  WillPopScope(
       onWillPop:backscreen ,
       child: Scaffold(
-          backgroundColor: Colors.black12,
+          backgroundColor: Colors.transparent,
           body: Container(
          decoration: boxdecoration,
-            child: Column(
-              children: <Widget>[
-               // SizedBox(height: 24.0),
-                score_builder(time: time, score: score),
-                buildBoard(),
-                Container(
-                    height: 20,
-                    child: new Placeholder(color:Colors.transparent)
-                ),
+            child: SafeArea(
+              child: Column(
+                children: <Widget>[
+                 // SizedBox(height: 24.0),
+                  score_builder(time: time, score: score),
+                  buildBoard(),
+                  Container(
+                      height: 20,
+                      child: new Placeholder(color:Colors.transparent)
+                  ),
 
-              ],
+                ],
+              ),
             ),
           )),
     );

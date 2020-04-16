@@ -134,7 +134,7 @@ class _mainhomeState extends State<mainhome> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Expanded(
-                              child: MainHomeimageContainer('assets/homekitten.png',(){ p.SoundClick('SoundFarmCat.mp3') ;
+                              child: HomeimageContainer('assets/homekitten.png',(){ p.SoundClick('SoundFarmCat.mp3') ;
                               }),
                             ),
                             Column(

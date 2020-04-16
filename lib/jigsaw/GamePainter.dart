@@ -31,8 +31,7 @@ class GamePainter extends CustomPainter {
     mypaint = Paint();
     mypaint.style = PaintingStyle.stroke;
     mypaint.strokeWidth = 1.0;
-    mypaint.color = Color(0xa0dddddd);
-
+    mypaint.color = Colors.red;
     path = Path();
   }
 

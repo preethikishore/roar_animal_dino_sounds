@@ -8,38 +8,38 @@ import 'package:roar_animal_dino_sounds/puzzlegame/Puzzlepiece.dart';
 
 import '../main_home_page.dart';
 
-class PuzzlePage extends StatefulWidget {
+class PuzzleHardPage extends StatefulWidget {
 
   final String title;
-  final int rows = 3;
-  final int cols = 3;
+  final int rows = 5;
+  final int cols = 4;
 
 
 
-  PuzzlePage({Key key, this.title}) : super(key: key);
+  PuzzleHardPage({Key key, this.title}) : super(key: key);
 
   @override
-  _PuzzlePageState createState() => _PuzzlePageState();
+  _PuzzleHardPageState createState() => _PuzzleHardPageState();
 }
 
-class _PuzzlePageState extends State<PuzzlePage> {
+class _PuzzleHardPageState extends State<PuzzleHardPage> {
   PlaySound p = new PlaySound();
   Image  _image;
   List<Widget> pieces = [];
-static final List<Image> images = [
-  Image.asset('assets/puzzles_image/p0.png'),
-  Image.asset('assets/puzzles_image/p1.png'),
-  Image.asset('assets/puzzles_image/p2.png'),
-  Image.asset('assets/puzzles_image/p3.png'),
-  Image.asset('assets/puzzles_image/p4.png'),
-  Image.asset('assets/puzzles_image/p5.png'),
-  Image.asset('assets/puzzles_image/p6.png'),
-  Image.asset('assets/puzzles_image/p7.png'),
-  Image.asset('assets/puzzles_image/p8.png'),
-  Image.asset('assets/puzzles_image/p9.png'),
-  Image.asset('assets/puzzles_image/p10.png'),
-  Image.asset('assets/puzzles_image/p11.png'),
-  Image.asset('assets/puzzles_image/p12.png'),
+  static final List<Image> images = [
+    Image.asset('assets/puzzles_image/p0.png'),
+    Image.asset('assets/puzzles_image/p1.png'),
+    Image.asset('assets/puzzles_image/p2.png'),
+    Image.asset('assets/puzzles_image/p3.png'),
+    Image.asset('assets/puzzles_image/p4.png'),
+    Image.asset('assets/puzzles_image/p5.png'),
+    Image.asset('assets/puzzles_image/p6.png'),
+    Image.asset('assets/puzzles_image/p7.png'),
+    Image.asset('assets/puzzles_image/p8.png'),
+    Image.asset('assets/puzzles_image/p9.png'),
+    Image.asset('assets/puzzles_image/p10.png'),
+    Image.asset('assets/puzzles_image/p11.png'),
+    Image.asset('assets/puzzles_image/p12.png'),
 
   ];
   int count = 0;
@@ -47,9 +47,9 @@ static final List<Image> images = [
   var image;
   int time = 0;
   static final rng = new Random();
- int i=rng.nextInt(images.length - 1 );
+  int i=rng.nextInt(images.length - 1 );
   static const insidecolor = const Color(0xffde6000);
- // int i = 0;
+  // int i = 0;
 
   void runTimer() {
     if(_timestatus == true) {
@@ -81,9 +81,28 @@ static final List<Image> images = [
     setState(() {
       getImage();
     });
+
+
+
   }
 
+//  Future getScreen() async{
+//    var image = images[i];
+//
+//    if (image != null) {
+//      setState(() {
+//        _image = image;
+//      });
+//
+//
+//    }
+//
+//  }
+
+
   Future getImage() async {
+
+
 
     image = images[i];
     count = 0;
@@ -152,24 +171,24 @@ static final List<Image> images = [
       pieces.insert(0, widget);
       count++;
       print(count);
-      if (count >= 9)
+      if (count >= 20)
       {
-        print(">16");
+
         p.SoundClick("win.mp3");
         Timer(Duration(seconds: 3), () {
           setState(() {
             increment();
             getImage();
 
-        });
+          });
 
         });
       }
       else
-        {
-          print("<=16");
-          p.SoundClick("puzzlepositive.mp3");
-        }
+      {
+
+        p.SoundClick("puzzlepositive.mp3");
+      }
     });
 
   }
@@ -180,7 +199,7 @@ static final List<Image> images = [
     return Align(
       alignment: Alignment.topLeft,
       child: Stack(overflow: Overflow.visible,
-        children: pieces
+          children: pieces
       ),
     ) ;
 
@@ -200,10 +219,10 @@ static final List<Image> images = [
                 children: <Widget>[
                   Container(
                     child: time < 4
-                           ? Expanded(child: Align(alignment: Alignment.topLeft,child: images[i]))
-                          : //Expanded(child: Stack( overflow: Overflow.visible ,children: pieces )),
+                        ? Expanded(child: Align(alignment: Alignment.topLeft,child: images[i]))
+                        : //Expanded(child: Stack( overflow: Overflow.visible ,children: pieces )),
                     Expanded(child: get_imagepiece()),
-                    
+
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -212,9 +231,9 @@ static final List<Image> images = [
                       onTap: (){
                         _timestatus = false;
                         p.stopFile();
-                      Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => mainhome()),
-                      );
+                        Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => mainhome()),
+                        );
                       },
                       child: Icon(
                         Icons.home,

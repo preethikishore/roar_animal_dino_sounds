@@ -35,27 +35,24 @@ class JigsawHome extends StatelessWidget {
                           child: MainHomeButton()),
 
 
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 100.0),
-                        child: Row(children: <Widget>[
+                      Row(children: <Widget>[
 
-                          Expanded(
-                            child: MainHomeimageContainer('assets/puzzlehomelion.png',(){ p.SoundClick('SoundAnimallion.mp3') ;
-                            }),
-                          ),
+                        Expanded(
+                          child: MainHomeimageContainer('assets/puzzlehomelion.png',(){ p.SoundClick('SoundAnimallion.mp3') ;
+                          }),
+                        ),
 
-                          Expanded(
-                            child: GestureDetector(
-                              child: Container(
-                               child: Image.asset('assets/boardstart.png'),
-                              ),
-                              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>JigsawPage()));}
+                        Expanded(
+                          child: GestureDetector(
+                            child: Container(
+                             child: Image.asset('assets/boardstart.png'),
                             ),
+                            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>JigsawPage()));}
                           ),
+                        ),
 
 
-                        ],),
-                      ),
+                      ],),
 
 
 

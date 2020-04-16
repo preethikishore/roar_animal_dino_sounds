@@ -13,12 +13,16 @@ class MainHomeimageContainer  extends StatelessWidget {
       onTap: action ,
       child: Container(
 
-        child: Image.asset((image_data),
-          height:220,
-          width: 200,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset((image_data),
+//          height:220,
+//          width: 200,
+          ),
         ),
 
       ),
     );
+
   }
 }

@@ -74,7 +74,6 @@ class PuzzleMagic {
 
     Paint paint = Paint();
     canvas.drawImageRect(image, rect, rect2, paint);
-//    node.image = recorder.endRecording().toImage(ww.floor(), ww.floor());
     recorder.endRecording().toImage(ww.floor(), ww.floor()).then((image){
       node.image = image;
     });

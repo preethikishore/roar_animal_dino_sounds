@@ -9,7 +9,7 @@ class AnimalSound extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-//      DeviceOrientation.portraitUp,
+
     ]);
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
@@ -17,9 +17,7 @@ class AnimalSound extends StatelessWidget {
         scaffoldBackgroundColor:Colors.white,
       ),
 
-      home: mainhome(),
-     //MemoryBird(),
-
+      home: mainhome()
 
     );
 
