@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:roar_animal_dino_sounds/homegame.dart';
 import 'package:roar_animal_dino_sounds/memory/animal/animal_card_board.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/memory/animal/animal_game_over.dart';
 import 'package:roar_animal_dino_sounds/memory/score_builder.dart';
-import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/models/constants.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
 
 

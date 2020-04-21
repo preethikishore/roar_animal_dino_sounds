@@ -1,11 +1,8 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/Puzzlepiece.dart';
-
 import '../main_home_page.dart';
 
 class PuzzlePage extends StatefulWidget {
@@ -151,11 +148,9 @@ static final List<Image> images = [
       pieces.remove(widget);
       pieces.insert(0, widget);
       count++;
-      print(count);
       if (count >= 9)
       {
-        print(">16");
-        p.SoundClick("win.mp3");
+         p.SoundClick("win.mp3");
         Timer(Duration(seconds: 3), () {
           setState(() {
             increment();
@@ -167,7 +162,6 @@ static final List<Image> images = [
       }
       else
         {
-          print("<=16");
           p.SoundClick("puzzlepositive.mp3");
         }
     });

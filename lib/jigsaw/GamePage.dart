@@ -8,10 +8,10 @@ import 'package:roar_animal_dino_sounds/jigsaw/GamePainter.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/ImageNode.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/PuzzleMagic.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/jigsaw_page.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
-import 'package:roar_animal_dino_sounds/moadals/constants.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/constants.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_image_container.dart';
 
 import '../main_home_page.dart';
 

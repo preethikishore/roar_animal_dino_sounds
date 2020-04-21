@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/homegame.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/jigsaw_home.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_image_container.dart';
 class JigsawHome extends StatelessWidget {
   @override
 

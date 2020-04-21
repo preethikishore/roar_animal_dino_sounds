@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
 import 'package:roar_animal_dino_sounds/Screens/BirdScreen2.dart';
 import 'package:roar_animal_dino_sounds/Screens/welcome.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 
 import 'package:roar_animal_dino_sounds/AnimationTest.dart';
-import 'package:roar_animal_dino_sounds/moadals/constants.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/constants.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_button.dart';
 
 
 

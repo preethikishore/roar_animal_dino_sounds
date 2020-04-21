@@ -1,19 +1,14 @@
-import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:roar_animal_dino_sounds/AnimationTest.dart';
 import 'package:roar_animal_dino_sounds/Screens/welcome.dart';
 import 'package:roar_animal_dino_sounds/game/MyGame.dart';
-import 'package:roar_animal_dino_sounds/game/Sleeping_panda.dart';
 import 'package:roar_animal_dino_sounds/homegame.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
-import 'package:roar_animal_dino_sounds/moadals/HomeImageContainer.dart';
-import 'package:roar_animal_dino_sounds/Test.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/HomeImageContainer.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'dart:io';
-
-import 'package:roar_animal_dino_sounds/moadals/constants.dart';
+import 'package:roar_animal_dino_sounds/models/constants.dart';
 
 class mainhome extends StatefulWidget {
 
@@ -49,7 +44,9 @@ class _mainhomeState extends State<mainhome> {
     // TODO: implement initState
     super.initState();
     targetingInfo = MobileAdTargetingInfo(
-      keywords: <String>['Children', 'Learning', 'Animal Sounds', 'Dinosaurs', 'Animals', 'Birds', 'Insects'],
+      keywords: <String>['Roar and Fun','Roar and Fun','Kids','Children', 'Learning', 'Animal Sounds', 'Dinosaurs', 'Animals',
+        'Birds', 'Insects','Puzzles','Kids puzzles','Jigsaw','Memory games',
+        'Kids games','Animal Puzzles','Animal Jigsaw','Dinosaur Memory Games'],
       contentUrl: 'http://preethikishore.com',
       birthday: DateTime.now(),
       childDirected: true,
@@ -61,9 +58,6 @@ class _mainhomeState extends State<mainhome> {
       adUnitId: myAdUnitId,
       size: AdSize.smartBanner,
       targetingInfo: targetingInfo,
-      listener: (MobileAdEvent event) {
-        print("BannerAd event is $event");
-      },
     );
     show_banner();
   }

@@ -30,7 +30,7 @@ class _GameWrapperState extends State<GameWrapper> {
         context: context,
         builder: (context)=> AlertDialog(
           title: Text('Are You Sure ?'),
-          content:Text('Do you want to exit the app?'),
+          content:Text('Do you want to exit ?'),
           actions: <Widget>[
             FlatButton(
               child: Text('No'),

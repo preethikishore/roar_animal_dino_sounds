@@ -4,10 +4,10 @@ import 'package:roar_animal_dino_sounds/memory/Farm/memory_farm.dart';
 import 'package:roar_animal_dino_sounds/memory/animal/animal_memory.dart';
 import 'package:roar_animal_dino_sounds/memory/bird/memory_bird.dart';
 import 'package:roar_animal_dino_sounds/memory/dino/memory_dino.dart';
-import 'package:roar_animal_dino_sounds/moadals/HomeImageContainer.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_image_container.dart';
+import 'package:roar_animal_dino_sounds/models/HomeImageContainer.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_image_container.dart';
 
 
 class Memoryhome extends StatefulWidget {

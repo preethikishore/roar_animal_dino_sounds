@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/jigsaw/jigsaw_page.dart';
 import 'package:roar_animal_dino_sounds/main_home_page.dart';
-import 'package:roar_animal_dino_sounds/moadals/HomeImageContainer.dart';
-import 'package:roar_animal_dino_sounds/Test.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/HomeImageContainer.dart';
+import 'package:roar_animal_dino_sounds/Rotate.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_button.dart';
 import 'package:roar_animal_dino_sounds/memory/memory_home.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/puzzlehome.dart';
-import 'moadals/main_home_image_container.dart';
+import 'models/main_home_image_container.dart';
 
 class homegame extends StatefulWidget {
 
@@ -74,14 +74,14 @@ class _homegameState extends State<homegame> {
                             ),
                             Column(children: <Widget>[
                               Expanded(
-                                child: HomeimageContainer('assets/boardjigsaw.png',(){ Navigator.push(
+                                child: HomeimageContainer('assets/boardslidingpuzzle.png',(){ Navigator.push(
                                   context, MaterialPageRoute(builder: (context) =>  JigsawHome()),
                                 );
                                 },),
                               ),
 
                               Expanded(
-                                child: HomeimageContainer('assets/boardpuzzles.png',(){ Navigator.push(
+                                child: HomeimageContainer('assets/boardjigsaw.png',(){ Navigator.push(
                                   context, MaterialPageRoute(builder: (context) =>  PuzzleHome()),
                                 );
                                 },),

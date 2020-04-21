@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:roar_animal_dino_sounds/moadals/HomeImageContainer.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/Quiz/Quiz3.dart';
-import 'package:roar_animal_dino_sounds/moadals/constants.dart';
-import 'package:roar_animal_dino_sounds/moadals/QuizPanel.dart';
-
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/HomeImageContainer.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/constants.dart';
+import 'package:roar_animal_dino_sounds/models/QuizPanel.dart';
+import 'package:roar_animal_dino_sounds/models/main_home_button.dart';
 
 class Quiz2 extends StatelessWidget {
-
-
-
-
 
   PlaySound p = new PlaySound();
 

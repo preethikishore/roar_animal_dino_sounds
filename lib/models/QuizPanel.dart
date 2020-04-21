@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:roar_animal_dino_sounds/moadals/constants.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/constants.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 
 class QuizPanel extends StatelessWidget {
   PlaySound p = new PlaySound();

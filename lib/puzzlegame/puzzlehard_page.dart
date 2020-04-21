@@ -1,11 +1,8 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
-import 'package:roar_animal_dino_sounds/moadals/main_home_button.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/Puzzlepiece.dart';
-
 import '../main_home_page.dart';
 
 class PuzzleHardPage extends StatefulWidget {
@@ -86,20 +83,6 @@ class _PuzzleHardPageState extends State<PuzzleHardPage> {
 
   }
 
-//  Future getScreen() async{
-//    var image = images[i];
-//
-//    if (image != null) {
-//      setState(() {
-//        _image = image;
-//      });
-//
-//
-//    }
-//
-//  }
-
-
   Future getImage() async {
 
 
@@ -170,7 +153,6 @@ class _PuzzleHardPageState extends State<PuzzleHardPage> {
       pieces.remove(widget);
       pieces.insert(0, widget);
       count++;
-      print(count);
       if (count >= 20)
       {
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roar_animal_dino_sounds/moadals/PlaySound.dart';
+import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 
 class CardItem extends StatefulWidget {
   PlaySound p = new PlaySound();
