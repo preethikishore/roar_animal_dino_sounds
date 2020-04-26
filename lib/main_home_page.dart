@@ -156,9 +156,6 @@ class _mainhomeState extends State<mainhome> {
                                       game.loadGame();
                                     });
                                   }
-//
-//                                  MyGame game = new MyGame();
-//                                  game.loadGame();
                                 }
 
                                 ),

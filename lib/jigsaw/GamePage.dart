@@ -110,7 +110,23 @@ class GamePageState extends State<GamePage> with TickerProviderStateMixin {
             children: <Widget>[
               Align(
                 alignment: Alignment.bottomLeft,
-                child:MainHomeButton(),),
+                child:GestureDetector(
+
+                  onTap: (){
+                    setState(() {
+                      gameState = GameState.loading;
+                    });
+                    p.stopFile();
+                  Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => mainhome()),
+                  );
+                  },
+                  child: Icon(
+                    Icons.home,
+                    color: Color(0xffde6000),
+                    size: 60.0,
+                  ),
+                ),),
 
               Row(
                 children: <Widget>[
@@ -167,38 +183,21 @@ class GamePageState extends State<GamePage> with TickerProviderStateMixin {
             image: DecorationImage(
                 image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
 
-        child: Column(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.topLeft,
-              child:MainHomeButton(),),
-
-            Container(
-              child: Expanded(
-                child: Stack(
-                  children: [
-                    GestureDetector(
-                      child: CustomPaint(
-                          painter: GamePainter(nodes, level, hitNode, hitNodeList,
-                              direction, downX, downY, newX, newY, needdraw),
-                          size: Size.infinite),
-                      onPanDown: onPanDown,
-                      onPanUpdate: onPanUpdate,
-                      onPanEnd: onPanUp,
-                    ),
-                  ],
-                ),
+        child: Container(
+              child: Stack(
+                children: [
+                  GestureDetector(
+                    child: CustomPaint(
+                        painter: GamePainter(nodes, level, hitNode, hitNodeList,
+                            direction, downX, downY, newX, newY, needdraw),
+                        size: Size.infinite),
+                    onPanDown: onPanDown,
+                    onPanUpdate: onPanUpdate,
+                    onPanEnd: onPanUp,
+                  ),
+                ],
               ),
             ),
-            Container(
-
-                height: 60,
-                child: new Placeholder(color:Colors.transparent)
-            ),
-
-
-          ],
-        ),
       );
     }
   }

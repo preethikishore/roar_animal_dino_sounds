@@ -31,7 +31,7 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
 
     Timer(Duration(seconds: 1), () {
       if (_timestatus == true) {
-        if (time >= 50 || score >= 800) {
+        if (time >= 90 || score >= 800) {
 
           p.SoundClick('puzzlecheer.mp3');
           Navigator.push(context, MaterialPageRoute(

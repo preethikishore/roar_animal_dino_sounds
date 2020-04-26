@@ -46,8 +46,8 @@ class _homegameState extends State<homegame> {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Column(
-                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //crossAxisAlignment: CrossAxisAlignment.center,
+
+
                     children: <Widget>[
                       Align(
                         alignment: Alignment.bottomLeft,
@@ -66,7 +66,7 @@ class _homegameState extends State<homegame> {
                       // Title_Label('Home Page',color) ,
                       Expanded(
                         child: Row(
-                         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                           children: <Widget>[
                             Expanded(
                               child: MainHomeimageContainer('assets/homegame.png',(){ p.SoundClick('SoundAnimalmonkey.mp3') ;

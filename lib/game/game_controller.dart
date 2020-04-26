@@ -10,7 +10,6 @@ import 'package:roar_animal_dino_sounds/game/ui/player.dart';
 import 'package:roar_animal_dino_sounds/game/enemy_spawner.dart';
 import 'package:roar_animal_dino_sounds/game/ui/score_text.dart';
 import 'package:roar_animal_dino_sounds/game/state.dart';
-import 'package:roar_animal_dino_sounds/game/ui/high_text.dart';
 import 'package:roar_animal_dino_sounds/game/ui/start_text.dart';
 import 'package:roar_animal_dino_sounds/game/ui/health_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,7 +32,6 @@ class GameController extends Game {
   int score;
   ScoreText scoreText;
   StatePlay state;
-  HighScoreText highScoreText;
   StartText startText;
   SoundButton soundButton;
   bool isNewInst = true;
@@ -62,7 +60,6 @@ class GameController extends Game {
     spawnEnemy();
     score = 0;
     scoreText = ScoreText(this);
-    highScoreText = HighScoreText(this);
     startText = StartText(this);
     BGM.play(BGMType.home);
   }
@@ -74,7 +71,6 @@ class GameController extends Game {
     if( state == StatePlay.menu)
     {
       startText.render(c);
-      highScoreText.render(c);
 
     }
     else if (state == StatePlay.playing){
@@ -87,7 +83,6 @@ class GameController extends Game {
   void update( double t){
     if(state == StatePlay.menu)
     {
-      highScoreText.update(t);
       startText.update(t);
 
     }else if ( state == StatePlay.playing) {

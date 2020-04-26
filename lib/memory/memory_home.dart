@@ -63,34 +63,36 @@ class _MemoryhomeState extends State<Memoryhome> {
                               child: MainHomeimageContainer('assets/memoryzeebra.png',(){ p.SoundClick('SoundAnimalzeebra.mp3') ;
                               }),
                             ),
-                            Column(children: <Widget>[
-                              Expanded(
-                                child: HomeimageContainer('assets/boardwild.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) => MemoryAnimalHomePage()),
-                                );
-                                },),
-                              ),
+                            Expanded(
+                              child: Column(children: <Widget>[
+                                Expanded(
+                                  child: HomeimageContainer('assets/boardwild.png',(){ Navigator.push(
+                                    context, MaterialPageRoute(builder: (context) => MemoryAnimalHomePage()),
+                                  );
+                                  },),
+                                ),
 
-                              Expanded(
-                                child: HomeimageContainer('assets/boarddino.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) => MemoryDino()),
-                                );
-                                },),
-                              ),
-                              Expanded(
-                                child: HomeimageContainer('assets/boardbirds.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) =>  MemoryBird()),
-                                );
-                                },),
-                              ),
-                              Expanded(
-                                child: HomeimageContainer('assets/boardfarm.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) =>  MemoryFarm()),
-                                );
-                                },),
-                              ),
+                                Expanded(
+                                  child: HomeimageContainer('assets/boarddino.png',(){ Navigator.push(
+                                    context, MaterialPageRoute(builder: (context) => MemoryDino()),
+                                  );
+                                  },),
+                                ),
+                                Expanded(
+                                  child: HomeimageContainer('assets/boardbirds.png',(){ Navigator.push(
+                                    context, MaterialPageRoute(builder: (context) =>  MemoryBird()),
+                                  );
+                                  },),
+                                ),
+                                Expanded(
+                                  child: HomeimageContainer('assets/boardfarm.png',(){ Navigator.push(
+                                    context, MaterialPageRoute(builder: (context) =>  MemoryFarm()),
+                                  );
+                                  },),
+                                ),
 
-                            ],)
+                              ],),
+                            )
 
                           ],
 

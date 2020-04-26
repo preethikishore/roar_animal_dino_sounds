@@ -26,7 +26,7 @@ class Quiz11 extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
 
-                    Expanded(child: QuizPanel('Zeebra','NameAnimalzebra.mp3')),
+                    Expanded(child: QuizPanel('Zebra','NameAnimalzebra.mp3')),
                     Expanded(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

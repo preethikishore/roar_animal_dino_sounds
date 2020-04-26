@@ -69,47 +69,50 @@ class _welcomeState extends State<welcome> {
 
                       Expanded(
                         child: Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                         Expanded(
                         child: MainHomeimageContainer('assets/bgpuppy.png',(){ p.SoundClick('SoundFarmDog.mp3') ;
-                       }),
-                      ),
-                      Column(children: <Widget>[
-                        //'assets/boardwild.png'
-                         Expanded(
-                         child: MainHomeimageContainer('assets/boardwild.png',(){ Navigator.push(
-                         context, MaterialPageRoute(builder: (context) =>  WildAnimal()),
-                          );
-                          },),
+                         }),
                         ),
+                         Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                          //'assets/boardwild.png'
+                           Expanded(
+                           child: MainHomeimageContainer('assets/boardwild.png',(){ Navigator.push(
+                           context, MaterialPageRoute(builder: (context) =>  WildAnimal()),
+                            );
+                            },),
+                          ),
 
                      Expanded(
-                        child: MainHomeimageContainer('assets/boarddino.png',(){ Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => DinoScreen(),
-                           )
-                        );
-                       },
-                        ),
-                     ),
-                      Expanded(
-                         child: MainHomeimageContainer('assets/boardbirds.png',(){ Navigator.push(
-                       context, MaterialPageRoute(builder: (context) =>   BirdsScreen()),
-                             );
-                           },),
-                          ),
-                        Expanded(
-                          child: MainHomeimageContainer('assets/boardfarm.png',(){ Navigator.push(
-                           context, MaterialPageRoute(builder: (context) => DomesticAnimal()),
-                              );
-                           },),
-                         ),
-                        Expanded(
-                          child: MainHomeimageContainer('assets/boardinsects.png',(){ Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => InsectsScreen()),
+                          child: MainHomeimageContainer('assets/boarddino.png',(){ Navigator.push(
+                              context, MaterialPageRoute(builder: (context) => DinoScreen(),
+                             )
                           );
-                          },),
-                        ),
+                         },
+                          ),
+                     ),
+                        Expanded(
+                           child: MainHomeimageContainer('assets/boardbirds.png',(){ Navigator.push(
+                         context, MaterialPageRoute(builder: (context) =>   BirdsScreen()),
+                               );
+                             },),
+                            ),
+                          Expanded(
+                            child: MainHomeimageContainer('assets/boardfarm.png',(){ Navigator.push(
+                             context, MaterialPageRoute(builder: (context) => DomesticAnimal()),
+                                );
+                             },),
+                           ),
+                          Expanded(
+                            child: MainHomeimageContainer('assets/boardinsects.png',(){ Navigator.push(
+                              context, MaterialPageRoute(builder: (context) => InsectsScreen()),
+                            );
+                            },),
+                          ),
 
                    Expanded(
                 child: MainHomeimageContainer('assets/boardquiz.png',(){ Navigator.push(
@@ -122,15 +125,13 @@ class _welcomeState extends State<welcome> {
 
 
 
-                       ],)
+                         ],),
+                        )
 
                          ],
 
                           ),
                       ),
-
-
-
 
 
 

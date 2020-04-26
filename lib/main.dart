@@ -14,7 +14,7 @@ class AnimalSound extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.white,
-        scaffoldBackgroundColor:Colors.white,
+        scaffoldBackgroundColor:Colors.transparent,
       ),
 
       home: mainhome()

@@ -77,7 +77,9 @@ class DinoScreen extends StatelessWidget {
                     child: Image.asset('assets/boardnext.png',
                       height: 50,
                       width: 90,),
-                    onPressed: (){ Navigator.push(
+                    onPressed: (){
+                      p.stopFile();
+                      Navigator.push(
                       context, MaterialPageRoute(builder: (context) => welcome()),);},
                   ),
                 )
