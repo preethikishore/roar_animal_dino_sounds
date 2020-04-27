@@ -16,7 +16,7 @@ class MemoryFarmState extends State<MemoryFarm> {
   PlaySound p = new PlaySound();
 
   int score = 0;
-  int time = 0;
+  int time = 80;
   bool _timestatus ;
 
   @override
@@ -34,7 +34,7 @@ class MemoryFarmState extends State<MemoryFarm> {
 
     Timer(Duration(seconds: 1), () {
       if (_timestatus == true) {
-        if (time >= 90 || score >= 800) {
+        if (time <= 0 || score >= 800) {
 
           p.SoundClick('puzzlecheer.mp3');
           Navigator.push(context, MaterialPageRoute(
@@ -42,7 +42,7 @@ class MemoryFarmState extends State<MemoryFarm> {
         }
         else {
           setState(() {
-            this.time += 1;
+            this.time -= 1;
             runTimer();
           });
         }

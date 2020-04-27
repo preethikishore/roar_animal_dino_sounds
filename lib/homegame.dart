@@ -43,77 +43,69 @@ class _homegameState extends State<homegame> {
             body: SafeArea(
               child: Container(
 
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
+                child: Column(
 
 
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child:MainHomeButton(),),
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child:MainHomeButton(),),
 
-                      Expanded(
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(child: TopAnimationHome( () {p.SoundClick('SoundAnimalmonkey.mp3'); } ,'assets/A13.png')),
-                            Expanded(child: TopAnimationHome(  () {p.SoundClick('SoundAnimalmonkey.mp3'); } ,'assets/monkeyicon.png')),
-                            Expanded(child: TopAnimationHome(  () {p.SoundClick('SoundAnimalmonkey.mp3'); } ,'assets/A13.png')),
-                          ],
+
+
+                    Container(
+                        height: 50,
+                        child: new Placeholder(color:Colors.transparent)
+                    ),
+//
+
+                    // Title_Label('Home Page',color) ,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                      children: <Widget>[
+                        Expanded(
+                          child: MainHomeimageContainer('assets/homegame.png',(){ p.SoundClick('SoundAnimalmonkey.mp3') ;
+                          }),
                         ),
-                      ),
-                  //  Spacer(flex: 2,),
-                      // Title_Label('Home Page',color) ,
-                      Expanded(
-                        child: Row(
+                        Expanded(
+                          child: Column(
+                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-                          children: <Widget>[
-                            Expanded(
-                              child: MainHomeimageContainer('assets/homegame.png',(){ p.SoundClick('SoundAnimalmonkey.mp3') ;
-                              }),
-                            ),
-                            Column(children: <Widget>[
-                              Expanded(
-                                child: HomeimageContainer('assets/boardslidingpuzzle.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) =>  JigsawHome()),
-                                );
-                                },),
-                              ),
+                            children: <Widget>[
 
-                              Expanded(
-                                child: HomeimageContainer('assets/boardjigsaw.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) =>  PuzzleHome()),
-                                );
-                                },),
-                              ),
+                            HomeimageContainer('assets/boardslidingpuzzle.png',(){ p.stopFile(); Navigator.push(
+                              context, MaterialPageRoute(builder: (context) =>  JigsawHome()),
+                            );
+                            },),
 
-                              Expanded(
-                                child: HomeimageContainer('assets/boardmemory.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) =>  Memoryhome()),
-                                );
-                                },),
-                              ),
+                            HomeimageContainer('assets/boardjigsaw.png',(){ p.stopFile(); Navigator.push(
+                              context, MaterialPageRoute(builder: (context) =>  PuzzleHome()),
+                            );
+                            },),
+
+                            HomeimageContainer('assets/boardmemory.png',(){ p.stopFile(); Navigator.push(
+                              context, MaterialPageRoute(builder: (context) =>  Memoryhome()),
+                            );
+                            },),
 
 
-                            ],)
+                          ],),
+                        )
 
-                          ],
+                      ],
 
-                        ),
-                      ),
+                    ),
 
 
 
 
-                      Expanded(
-                        child: Container(
-                            height: 60,
-                            child: new Placeholder(color:Colors.transparent)
-                         ),
-                      ),
+                    Container(
+                        height: 100,
+                        child: new Placeholder(color:Colors.transparent)
+                     ),
 
-                    ],
-                  ),
+                  ],
                 ),
               ),
             )

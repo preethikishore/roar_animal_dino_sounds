@@ -15,7 +15,7 @@ class MemoryDinoState extends State<MemoryDino> {
   PlaySound p = new PlaySound();
 
   int score = 0;
-  int time = 0;
+  int time = 80;
    bool _timestatus ;
 
   @override
@@ -30,14 +30,14 @@ class MemoryDinoState extends State<MemoryDino> {
 
     Timer(Duration(seconds: 1), () {
       if (_timestatus == true) {
-        if (time >= 90 || score >= 800) {
+        if (time <= 0 || score >= 800) {
           p.SoundClick('puzzlecheer.mp3');
           Navigator.push(context, MaterialPageRoute(
               builder: (context) => DinoGameOver(score: score,)));
         }
         else {
           setState(() {
-            this.time += 1;
+            this.time -= 1;
             runTimer();
           });
         }

@@ -16,7 +16,7 @@ class MemoryBirdState extends State<MemoryBird> {
   PlaySound p = new PlaySound();
 
   int score = 0;
-  int time = 0;
+  int time = 80;
   bool _timestatus ;
 
   @override
@@ -31,14 +31,14 @@ class MemoryBirdState extends State<MemoryBird> {
 
     Timer(Duration(seconds: 1), () {
       if (_timestatus == true) {
-        if (time >= 90 || score >= 800) {
+        if (time <= 0 || score >= 800) {
           p.SoundClick('puzzlecheer.mp3');
           Navigator.push(context, MaterialPageRoute(
               builder: (context) => BirdGameOver(score: score,)));
         }
         else {
           setState(() {
-            this.time += 1;
+            this.time -= 1;
             runTimer();
           });
         }

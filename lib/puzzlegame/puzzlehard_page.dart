@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:roar_animal_dino_sounds/models/PlaySound.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/Puzzlepiece.dart';
+import 'package:roar_animal_dino_sounds/puzzlegame/puzzlehome.dart';
 import '../main_home_page.dart';
 
 class PuzzleHardPage extends StatefulWidget {
@@ -189,56 +190,68 @@ class _PuzzleHardPageState extends State<PuzzleHardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    Future <bool> backscreen()
+    async{
+      _timestatus = false;
+      p.stopFile();
 
-          body: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/bgpuzzle.jpg"), fit: BoxFit.cover)),
-            child: SafeArea(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    child: time < 4
-                        ? Expanded(child: Align(alignment: Alignment.topLeft,child: images[i]))
-                        : //Expanded(child: Stack( overflow: Overflow.visible ,children: pieces )),
-                    Expanded(child: get_imagepiece()),
+      Navigator.push(context, MaterialPageRoute(builder: (context) => PuzzleHome()))??
+          false;
 
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: GestureDetector(
+    }
 
-                      onTap: (){
-                        _timestatus = false;
-                        p.stopFile();
-                        Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => mainhome()),
-                        );
-                      },
-                      child: Icon(
-                        Icons.home,
-                        color: insidecolor,
-                        size: 60.0,
+
+    return WillPopScope(
+      onWillPop: backscreen,
+      child: SafeArea(
+        child: Scaffold(
+
+            body: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/bgpuzzle.jpg"), fit: BoxFit.cover)),
+              child: SafeArea(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: time < 4
+                          ? Expanded(child: Align(alignment: Alignment.topLeft,child: images[i]))
+                          : //Expanded(child: Stack( overflow: Overflow.visible ,children: pieces )),
+                      Expanded(child: get_imagepiece()),
+
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: GestureDetector(
+
+                        onTap: (){
+                          _timestatus = false;
+                          p.stopFile();
+                          Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => mainhome()),
+                          );
+                        },
+                        child: Icon(
+                          Icons.home,
+                          color: insidecolor,
+                          size: 60.0,
+                        ),
                       ),
+
                     ),
 
-                  ),
+                    Container(
+                        height: 60,
+                        child:  Placeholder(color:Colors.transparent)
+                    )
 
-                  Container(
-                      height: 60,
-                      child:  Placeholder(color:Colors.transparent)
-                  )
+                  ],
+                ),
 
-                ],
+
               ),
-
-
-
-
-            ),
-          )
+            )
+        ),
       ),
     ) ;
   }

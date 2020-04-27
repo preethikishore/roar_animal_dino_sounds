@@ -62,8 +62,8 @@ class _TopAnimationHomeState extends State<TopAnimationHome> with TickerProvider
         child: Container(
 
           child: Image.asset(widget.image_path,
-            height:80.0,
-            width: 80.0,
+            height:40.0,
+            width: 40.0,
           ),
 
         ),

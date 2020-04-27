@@ -69,7 +69,7 @@ class _welcomeState extends State<welcome> {
 
                       Expanded(
                         child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                         Expanded(
                         child: MainHomeimageContainer('assets/bgpuppy.png',(){ p.SoundClick('SoundFarmDog.mp3') ;
@@ -135,12 +135,10 @@ class _welcomeState extends State<welcome> {
 
 
 
-                    Expanded(
-                   child: Container(
-                       height: 60,
-                       child: new Placeholder(color:Colors.transparent)
-                       ),
-                      ),
+                    Container(
+                        height: 100,
+                        child: new Placeholder(color:Colors.transparent)
+                        ),
 
                      ],
 

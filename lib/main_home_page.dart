@@ -131,38 +131,40 @@ class _mainhomeState extends State<mainhome> {
                               child: HomeimageContainer('assets/homekitten.png',(){ p.SoundClick('SoundFarmCat.mp3') ;
                               }),
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                              Expanded(
-                                child: HomeimageContainer('assets/boardsounds.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) => welcome()),
-                                );
-                                },),
-                              ),
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                Expanded(
+                                  child: HomeimageContainer('assets/boardsounds.png',(){ Navigator.push(
+                                    context, MaterialPageRoute(builder: (context) => welcome()),
+                                  );
+                                  },),
+                                ),
 
-
-                              Expanded(
-                                child: HomeimageContainer('assets/boardgames.png',(){ Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) =>  homegame()),
-                                );
-                                },),
-                              ),
-                              Expanded(
-                                child: HomeimageContainer('assets/boardsleep.png',() async{
-                                  if (mounted) {
-                                    setState(() {
-                                      MyGame game = new MyGame();
-                                      game.loadGame();
-                                    });
+                                Expanded(
+                                  child: HomeimageContainer('assets/boardgames.png',(){ Navigator.push(
+                                    context, MaterialPageRoute(builder: (context) =>  homegame()),
+                                  );
+                                  },),
+                                ),
+                                Expanded(
+                                  child: HomeimageContainer('assets/boardsleep.png',() async{
+                                    if (mounted) {
+                                      setState(() {
+                                        MyGame game = new MyGame();
+                                        game.loadGame();
+                                      });
+                                    }
                                   }
-                                }
+
+                                  ),
 
                                 ),
 
-                              ),
 
-                            ],)
+                              ],),
+                            )
 
                           ],
 
@@ -170,11 +172,9 @@ class _mainhomeState extends State<mainhome> {
                       ),
 
 
-                      Expanded(
-                        child: Container(
-                            height: 60,
-                            child: new Placeholder(color:Colors.transparent)
-                        ),
+                      Container(
+                          height: 120,
+                          child: new Placeholder(color:Colors.transparent)
                       ),
 
                     ],

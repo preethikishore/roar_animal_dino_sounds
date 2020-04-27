@@ -52,60 +52,52 @@ class _MemoryhomeState extends State<Memoryhome> {
                         alignment: Alignment.topLeft,
                         child: MainHomeButton()),
 
+                    Container(
+                        height: 50,
+                        child: new Placeholder(color:Colors.transparent)
+                    ),
+
 //
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(8.0, 60.0, 8.0, 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Expanded(
-                              child: MainHomeimageContainer('assets/memoryzeebra.png',(){ p.SoundClick('SoundAnimalzeebra.mp3') ;
-                              }),
-                            ),
-                            Expanded(
-                              child: Column(children: <Widget>[
-                                Expanded(
-                                  child: HomeimageContainer('assets/boardwild.png',(){ Navigator.push(
-                                    context, MaterialPageRoute(builder: (context) => MemoryAnimalHomePage()),
-                                  );
-                                  },),
-                                ),
-
-                                Expanded(
-                                  child: HomeimageContainer('assets/boarddino.png',(){ Navigator.push(
-                                    context, MaterialPageRoute(builder: (context) => MemoryDino()),
-                                  );
-                                  },),
-                                ),
-                                Expanded(
-                                  child: HomeimageContainer('assets/boardbirds.png',(){ Navigator.push(
-                                    context, MaterialPageRoute(builder: (context) =>  MemoryBird()),
-                                  );
-                                  },),
-                                ),
-                                Expanded(
-                                  child: HomeimageContainer('assets/boardfarm.png',(){ Navigator.push(
-                                    context, MaterialPageRoute(builder: (context) =>  MemoryFarm()),
-                                  );
-                                  },),
-                                ),
-
-                              ],),
-                            )
-
-                          ],
-
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Expanded(
+                          child: MainHomeimageContainer('assets/memoryzeebra.png',(){ p.SoundClick('SoundAnimalzeebra.mp3') ;
+                          }),
                         ),
-                      ),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              HomeimageContainer('assets/boardwild.png',(){ Navigator.push(
+                                context, MaterialPageRoute(builder: (context) => MemoryAnimalHomePage()),
+                              );
+                              },),
+
+                            HomeimageContainer('assets/boarddino.png',(){ Navigator.push(
+                              context, MaterialPageRoute(builder: (context) => MemoryDino()),
+                            );
+                            },),
+                            HomeimageContainer('assets/boardbirds.png',(){ Navigator.push(
+                              context, MaterialPageRoute(builder: (context) =>  MemoryBird()),
+                            );
+                            },),
+                            HomeimageContainer('assets/boardfarm.png',(){ Navigator.push(
+                              context, MaterialPageRoute(builder: (context) =>  MemoryFarm()),
+                            );
+                            },),
+
+                          ],),
+                        )
+
+                      ],
+
                     ),
 
 
-                    Expanded(
-                      child: Container(
-                          height: 60,
-                          child: new Placeholder(color:Colors.transparent)
-                      ),
+                    Container(
+                        height: 60,
+                        child: new Placeholder(color:Colors.transparent)
                     ),
 
                   ],

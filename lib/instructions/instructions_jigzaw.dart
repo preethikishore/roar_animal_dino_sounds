@@ -26,52 +26,67 @@ class Instructionsjigzaw extends StatelessWidget {
 
             body: SafeArea(
 
-              child: Column(
-                children: <Widget>[
-                  Align(
-                    child: GestureDetector(
-                      onTap:(){
-                        Navigator.pop(context);
-                      } ,
-                      child: Container(
-                        child: Image.asset('assets/closebutton.png',
-                          width: 60,
-                          height: 60,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    Align(
+                      child: GestureDetector(
+                        onTap:(){
+                          Navigator.pop(context);
+                        } ,
+                        child: Container(
+                          child: Image.asset('assets/closebutton.png',
+                            width: 20,
+                            height: 40,
+                          ),
                         ),
                       ),
+                      alignment: Alignment.topLeft,
                     ),
-                    alignment: Alignment.topLeft,
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(30.0, 40.0, 20.0, 20.0),
-                      child: Container(
-                        color: Color(0Xff5fbe04),
-                        child: Center(
-                          child: Text(  "dfdfddfdfdfdfdfddfddd",
-                            style: TextStyle(
-                                fontSize: 22.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w200
-                            ),),
-                        ),
-                      ),
-                    ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Center(
+                        child: Text('JIGSAW',
+                          style: TextStyle(
+                            fontSize: 28.0,
+                            color: Color(0xffde6000),
+                            fontWeight: FontWeight.w900,
 
-                  Expanded(
-                    child: Container(
+                          ),
+
+                        ),
+                      ),
+                    ),
+
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Text( "1. The puzzle pieces fit at the same place where the image initially displayed.\n \n2. The image will display for 2 seconds before breaking into pieces.\n \n3. Start by constructing the puzzle with the outside pieces (one or two flat sides) and then fill the rest of the space with the remaining pieces."
+                          ,
+                          style: TextStyle(
+                            fontSize: 22.0,
+                            color: Color(0xffde6000),
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                          ),),
+                      ),
+                    ),
+
+                    Container(
                         height: 60,
                         child: new Placeholder(color:Colors.transparent)
                     ),
-                  ),
 
-                ],
+
+
+                  ],
+                ),
               ),
             ),
           )
       ),
     );
+
 
   }
 }

@@ -7,6 +7,8 @@ import 'package:roar_animal_dino_sounds/models/main_home_button.dart';
 import 'package:roar_animal_dino_sounds/models/main_home_image_container.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/puzzle_page.dart';
 import 'package:roar_animal_dino_sounds/puzzlegame/puzzlehard_page.dart';
+
+import '../AnimationTest.dart';
 class PuzzleHome extends StatelessWidget {
   @override
 
@@ -29,67 +31,59 @@ class PuzzleHome extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage("assets/bghome2.png"), fit: BoxFit.cover)),
               child: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Align(
-                          alignment: Alignment.topLeft,
-                          child: MainHomeButton()),
+                child: Column(
+                  children: <Widget>[
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child: MainHomeButton()),
+
+
+                    Container(
+                        height: 50,
+                        child: new Placeholder(color:Colors.transparent)
+                    ),
+
+
+
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: <Widget>[
                       Expanded(
-                        child: Row(
+                        child: MainHomeimageContainer('assets/puzzlehomelion.png',(){ p.SoundClick('SoundAnimallion.mp3') ;
+                        }),
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Expanded(child: TopAnimationHome( () {p.SoundClick('SoundAnimalmonkey.mp3'); } ,'assets/A13.png')),
-                            Expanded(child: TopAnimationHome(  () {p.SoundClick('SoundAnimalmonkey.mp3'); } ,'assets/monkeyicon.png')),
-                            Expanded(child: TopAnimationHome(  () {p.SoundClick('SoundAnimalmonkey.mp3'); } ,'assets/A13.png')),
+                            MainHomeimageContainer('assets/boardeasy.png',(){
+                              p.stopFile();
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>PuzzlePage()));}),
+
+                            MainHomeimageContainer('assets/boardhard.png',(){
+                              p.stopFile();
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>PuzzleHardPage()));}),
+
+                            MainHomeimageContainer('assets/boardhelp.png',(){
+                              p.stopFile();
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Instructionsjigzaw()));}),
+
                           ],
                         ),
-                      ),
-
-
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                       children: <Widget>[
-                        Expanded(
-                          child: MainHomeimageContainer('assets/puzzlehomelion.png',(){ p.SoundClick('SoundAnimallion.mp3') ;
-                          }),
-                        ),
-                        Expanded(
-                          child: Column(
-                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Expanded(
-                                child: MainHomeimageContainer('assets/boardeasy.png',(){Navigator.push(context, MaterialPageRoute(builder: (context)=>PuzzlePage()));}),
-                              ),
-
-                              Expanded(
-                                child: MainHomeimageContainer('assets/boardhard.png',(){Navigator.push(context, MaterialPageRoute(builder: (context)=>PuzzleHardPage()));}),
-                              ),
-
-                              Expanded(
-                                child: MainHomeimageContainer('assets/boardhelp.png',(){Navigator.push(context, MaterialPageRoute(builder: (context)=>Instructionsjigzaw()));}),
-                              ),
-
-                            ],
-                          ),
-                        )
-
-                      ],
-                    ),
-                  ),
-
-
-
-                      Expanded(
-                        child: Container(
-                            height: 60,
-                            child: new Placeholder(color:Colors.transparent)
-                        ),
-                      ),
+                      )
 
                     ],
                   ),
+
+
+
+                    Container(
+                        height: 80,
+                        child: new Placeholder(color:Colors.transparent)
+                    ),
+
+                  ],
                 ),
               ),
             )

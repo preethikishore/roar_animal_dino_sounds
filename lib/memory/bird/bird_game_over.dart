@@ -65,20 +65,24 @@ class BirdGameOver extends StatelessWidget {
 
                             children: <Widget>[
 
-                              FlatButton(
+                              Expanded(
+                                child: FlatButton(
 
-                                  child:  Image.asset('assets/boardreplay.png', height: puzzleboard_height,width: puzzleboard_width,),
-                                  onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>MemoryBird())); }
+                                    child:  Image.asset('assets/boardreplay.png', height: puzzleboard_height,width: puzzleboard_width,),
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) =>MemoryBird())); }
+                                ),
                               ),
 
-                              FlatButton(
-                                  child: Image.asset('assets/boardnewgame.png', height: puzzleboard_height,width: puzzleboard_width,
-                                  ),
+                                Expanded(
+                                child: FlatButton(
+                                    child: Image.asset('assets/boardnewgame.png', height: puzzleboard_height,width: puzzleboard_width,
+                                    ),
 
-                                  onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()));
-                                  }
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => Memoryhome()));
+                                    }
+                                ),
                               ),
 
 

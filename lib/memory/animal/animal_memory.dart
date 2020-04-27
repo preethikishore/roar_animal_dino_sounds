@@ -16,7 +16,7 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
   PlaySound p = new PlaySound();
 
   int score = 0;
-  int time = 0;
+  int time = 80;
   bool _timestatus ;
 
   @override
@@ -30,8 +30,7 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
   void runTimer() {
 
     Timer(Duration(seconds: 1), () {
-      if (_timestatus == true) {
-        if (time >= 90 || score >= 800) {
+      if (_timestatus == true) {if (time <= 0 || score >= 800) {
 
           p.SoundClick('puzzlecheer.mp3');
           Navigator.push(context, MaterialPageRoute(
@@ -39,7 +38,7 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
         }
         else {
           setState(() {
-            this.time += 1;
+            this.time -= 1;
             runTimer();
           });
         }
@@ -75,10 +74,8 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
                  // SizedBox(height: 24.0),
                   score_builder(time: time, score: score),
                   buildBoard(),
-                  Container(
-                      height: 20,
-                      child: new Placeholder(color:Colors.transparent)
-                  ),
+
+
 
                 ],
               ),
@@ -94,7 +91,8 @@ class MemoryAnimalHomePageState extends State<MemoryAnimalHomePage> {
           child: Stack(
 
             children: <Widget>[
-              Container(child: Padding(padding: EdgeInsets.all(8.0),child: CardBoard(onWin: onWin))),
+              Container(child: Padding(padding: EdgeInsets.all(6.0),child: CardBoard(onWin: onWin))),
+
                 //buildGradientView()
             ],
           ),
